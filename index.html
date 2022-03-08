@@ -192,7 +192,118 @@
             </div>
         </div>
     </div>
+    <!-- pop up -->
+
+    <div class="popup_container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="right">
+                        <h3 class="mb-3">Bill Details</h3>
+                        
+                        <div class="cs-input-group">
+                            <label for="sub">Subtotal</label>
+                            <input type="text" name="sub">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="tax">Tax/Vat</label>
+                            <input type="text" name="tax">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="discount">Discount</label>
+                            <input type="text" name="discount">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="other">Other Charge</label>
+                            <input type="text" name="other">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="paid">Paid</label>
+                            <div style="width:70%">
+                                <input style="width:100%;margin:0 0 10px 0;" type="text" name="paid">
+                                <div class="taka_fixed">
+                                    <span>100</span>
+                                    <span>200</span>
+                                    <span>500</span>
+                                    <span>1000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="change">Change Due</label>
+                            <input type="text" readonly name="change">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="spacialDiscount">Spacial Discount</label>
+                            <input type="text" name="spacialDiscount">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <input type="button" value="Save">
+                            <input type="button" value="Save & Print">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="left">
+                        <div class="cs-input-group mb-5">
+                            <label for="total"><h4>Total</h4></label>
+                            <div style="width:70%">
+                                <input type="text" readonly name="total">
+                                <div class="consider_box d-flex align-items-center">
+                                    <input type="checkbox" name="con" id="con">
+                                    <label for="con">Consider the amount after point</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="two-input-layout">
+                            <div class="cs-input-group">
+                                <div class="left-side">
+                                    <label for="pin">Pin Code</label>
+                                <input type="text" name="pin" id="pin">
+                                </div>
+                                <div class="right-side">
+                                    <label for="delivery">Delivery Address</label>
+                                <input type="text" name="delivery" id="delivery">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="three-input-layout">
+                            <div class="cs-input-group">
+                                <div class="left-side">
+                                    <label for="cheque">Cheque No</label>
+                                <input placeholder="Cheque No" type="text" name="cheque" id="cheque">
+                                </div>
+                                <div class="middle-side">
+                                    <label for="bank">Bank Name</label>
+                                <input placeholder="Bank Name" type="text" name="bank" id="bank">
+                                </div>
+                                <div class="right-side">
+                                    <label for="chequeDate">Cheque Date</label>
+                                    <input placeholder="Cheque Date" type="text" name="chequeDate" id="chequeDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quit">
+                            <textarea placeholder="Note" name="note" id="note" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- script -->
     <script src="./app.js"></script>
 </body>
 </html>
+

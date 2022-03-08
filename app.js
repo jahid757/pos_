@@ -3,10 +3,10 @@
 // item add
 
 function addItem(name, id, price) {
-  const oldItem = localStorage.getItem("posItemData");
-
-  if (oldItem !== null || oldItem === [] ) {
-    
+  const item = localStorage.getItem("posItemData");
+  const itemData = JSON.parse(item);
+  
+  if (itemData.length === 0) {
     window.localStorage.setItem(
       "posItemData",
       JSON.stringify([
@@ -15,26 +15,36 @@ function addItem(name, id, price) {
           id: id,
           price: price,
           qt: 1,
-        },
-        ...JSON.parse(oldItem),
+        }
       ])
     );
-
     showItem();
-  } else {
-    window.localStorage.setItem(
-      "posItemData",
-      JSON.stringify([
-        {
-          name: name,
-          id: id,
-          price: price,
-          qt: 1
-        },
-      ])
-    );
-    // plus(`item${id}`)
-    showItem();
+  } else{
+    for (let i = 0; i < itemData.length; i++) {
+      const element = itemData[i];
+      if (element.id === Number(id)) {
+        element.qt += 1;
+        const newItem = JSON.stringify(itemData);
+        window.localStorage.setItem("posItemData", newItem);
+        showItem();
+        return;
+      }else{
+        window.localStorage.setItem(
+          "posItemData",
+          JSON.stringify([
+            {
+              name: name,
+              id: id,
+              price: price,
+              qt: 1,
+            },
+            ...JSON.parse(item),
+          ])
+        );
+        showItem();
+        return;
+      }
+    }
   }
 }
 
@@ -134,18 +144,4 @@ function grandTotal() {
 }
 grandTotal();
 
-// check exist item
 
-function checkExist(id) {
-  const item = localStorage.getItem("posItemData");
-  const itemData = JSON.parse(item);
-
-  for (let i = 0; i < itemData.length; i++) {
-    const element = itemData[i];
-    if (element.id === Number(id)) {
-        return true
-    }else{
-        return false
-    }
-  }
-}

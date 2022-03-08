@@ -198,3 +198,97 @@ table.table{
     top:45%;
     right: -17px;
 }
+.popup_container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(0,0,0,.5);
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+}
+.popup_container .container{
+    background: #fff;
+    border-radius: 5px;
+}
+.popup_container .container .right,.popup_container .container .left{
+    padding: 15px;
+    border-radius: 5px;
+    border-right: 1px solid #d1d5db;
+}
+.popup_container .container .left{
+    border-left: 1px solid #d1d5db;
+    border-right: none;
+}
+.cs-input-group{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.cs-input-group input{
+    width: 70%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #d1d5db;
+    padding: 5px;
+    font-size: 13px;
+}
+.taka_fixed span{
+    font-size: 17px;
+    padding: 8px;
+    text-align: center;
+    background: #f3f4f6;
+    display:inline-block;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cs-input-group input[type="button"]:nth-child(2){
+    background-color: rgb(137, 4, 214);
+    color: #fff;
+    padding: 10px;
+}
+.cs-input-group input[type="button"]:nth-child(1){
+    width: 25%;
+    background-color: rgb(4 175 214);
+    color: #fff;
+    padding: 10px;
+}
+.consider_box input{
+    width: 20px;
+}
+.two-input-layout .left-side{
+    width: 33%;
+}
+.two-input-layout .left-side input{
+    display: block;
+    width: 100%;
+}
+.two-input-layout .right-side{
+    width: 65%;
+}
+.two-input-layout .right-side input{
+    display: block;
+    width: 100%;
+}
+.three-input-layout  input{
+    display: block;
+    width: 100%;
+}
+.three-input-layout .right-side {
+    width: 30%;
+}
+.three-input-layout .left-side {
+    width: 30%;
+}
+.three-input-layout .middle-side {
+    width: 30%;
+}
+.quit textarea{
+    width: 100%;
+    height: 100px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+}
