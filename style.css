@@ -207,10 +207,12 @@ table.table{
     z-index: 99999;
     width: 100%;
     height: 100%;
+    display: none;
 }
 .popup_container .container{
     background: #fff;
     border-radius: 5px;
+    position: relative;
 }
 .popup_container .container .right,.popup_container .container .left{
     padding: 15px;
@@ -291,4 +293,17 @@ table.table{
     outline: none;
     border-radius: 5px;
     padding: 10px;
+}
+.close{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    padding: 5px 30px;
+    background: rgb(139, 49, 49);
+    color: #fff;
+    outline: none;
+    border:none;
+    border-radius: 5px;
+
 }

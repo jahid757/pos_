@@ -5,7 +5,7 @@
 function addItem(name, id, price) {
   const item = localStorage.getItem("posItemData");
   const itemData = JSON.parse(item);
-  
+
   if (itemData.length === 0) {
     window.localStorage.setItem(
       "posItemData",
@@ -15,11 +15,11 @@ function addItem(name, id, price) {
           id: id,
           price: price,
           qt: 1,
-        }
+        },
       ])
     );
     showItem();
-  } else{
+  } else {
     for (let i = 0; i < itemData.length; i++) {
       const element = itemData[i];
       if (element.id === Number(id)) {
@@ -28,7 +28,7 @@ function addItem(name, id, price) {
         window.localStorage.setItem("posItemData", newItem);
         showItem();
         return;
-      }else{
+      } else {
         window.localStorage.setItem(
           "posItemData",
           JSON.stringify([
@@ -66,22 +66,28 @@ function showItem() {
                 <div class="quantity">
                 <div role="group" class="input-group">
                 <div class="input-group-prepend">
-                <span onclick="minus('item${element.id}')" class="btn btn-primary btn-sm">-</span>
+                <span onclick="minus('item${
+                  element.id
+                }')" class="btn btn-primary btn-sm">-</span>
                 </div> 
-                <input id="item${element.id}" class="qt_input text-center" value="${element.qt}"> 
+                <input id="item${
+                  element.id
+                }" class="qt_input text-center" value="${element.qt}"> 
                 <div class="input-group-append">
-                <span onclick="plus('item${element.id}')"  class="btn btn-primary btn-sm">+</span>
+                <span onclick="plus('item${
+                  element.id
+                }')"  class="btn btn-primary btn-sm">+</span>
                 </div>
              </div>
             </div>
             </td>
-          <td>${element.price*element.qt}$</td>
+          <td>${element.price * element.qt}$</td>
         </tr>
         `;
   }
 
-    document.getElementById("item-list").innerHTML = html;
-    grandTotal();
+  document.getElementById("item-list").innerHTML = html;
+  grandTotal();
 }
 showItem();
 
@@ -93,25 +99,23 @@ function resetData() {
   grandTotal();
 }
 
-// item qt update 
+// item qt update
 
 function minus(id) {
-    const qt = document.querySelector(`#${id}`).value;
-    if (qt > 1) {
-        const value = document.querySelector(`#${id}`).value = qt - 1;
-        
+  const qt = document.querySelector(`#${id}`).value;
+  if (qt > 1) {
+    const value = (document.querySelector(`#${id}`).value = qt - 1);
+
     const qtId = id.replace("item", "");
     updateQt(qtId, value);
-    }
-
-
+  }
 }
 
-function plus(id){
-    const qt = document.querySelector(`#${id}`).value;
-    const value = document.querySelector(`#${id}`).value = parseInt(qt) + 1;
-    const qtId = id.replace("item", "");
-    updateQt(qtId, value);
+function plus(id) {
+  const qt = document.querySelector(`#${id}`).value;
+  const value = (document.querySelector(`#${id}`).value = parseInt(qt) + 1);
+  const qtId = id.replace("item", "");
+  updateQt(qtId, value);
 }
 
 function updateQt(id, qt) {
@@ -144,4 +148,11 @@ function grandTotal() {
 }
 grandTotal();
 
-
+function popUp(ind) {
+  const modal = document.getElementById("modal");
+  if (ind === true) {
+    modal.style.display = "block";
+  } else {
+    modal.style.display = "none";
+  }
+}
