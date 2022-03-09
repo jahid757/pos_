@@ -19,7 +19,7 @@
                 <div class="d-flex align-items-center justify-content-between p-2 main_header mb-3">
                     <div class="logo">
                         <img src="images/logo.png" alt="">
-                        <i class="fa fa-bars"></i>
+                        <i onclick="fixedMenu('menu_left','')" class="fa fa-bars"></i>
                     </div>
                     <div class="d-flex align-items-center">
                         <i class="pointer fa fa-globe me-2"></i>
@@ -176,11 +176,11 @@
                     <div class="transform">
                         
                         <div class="category">
-                            <h4>Category</h4>
+                            <h4 onclick="fixedMenu('brand','category')">Category</h4>
                         </div>
 
                         <div class="brand">
-                            <h4>Brand</h4>
+                            <h4  onclick="fixedMenu('category','brand')">Brand</h4>
                         </div>
 
                     </div>
@@ -203,7 +203,7 @@
                         
                         <div class="cs-input-group">
                             <label for="sub">Subtotal</label>
-                            <input placeholder="Subtotal" type="text" name="sub">
+                            <input readonly id="subTotal" placeholder="Subtotal" type="text" name="sub">
                         </div>
 
                         <div class="cs-input-group">
@@ -224,19 +224,19 @@
                         <div class="cs-input-group">
                             <label for="paid">Paid</label>
                             <div style="width:70%">
-                                <input placeholder="Paid" style="width:100%;margin:0 0 10px 0;" type="text" name="paid">
+                                <input oninput="paidAmount()" id="paid" placeholder="Paid" value="0" style="width:100%;margin:0 0 10px 0;" type="text" name="paid" id="paid">
                                 <div class="taka_fixed">
-                                    <span>100</span>
-                                    <span>200</span>
-                                    <span>500</span>
-                                    <span>1000</span>
+                                    <span onclick="fixedAmount(100)">100</span>
+                                    <span onclick="fixedAmount(200)">200</span>
+                                    <span onclick="fixedAmount(500)">500</span>
+                                    <span onclick="fixedAmount(1000)">1000</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="cs-input-group">
                             <label for="change">Change Due</label>
-                            <input placeholder="Change Due" type="text" readonly name="change">
+                            <input id="change" placeholder="Change Due" type="text" readonly name="change">
                         </div>
 
                         <div class="cs-input-group">
@@ -299,6 +299,69 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- fixed menu left -->
+    <div class="fixed-menu-left" id="menu_left">
+        <div class="d-flex align-items-center justify-content-end">
+            <i onclick="fixedMenu('','menu_left')" class="fa fa-times pointer h5"></i>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </div>
+
+    <!-- brand list -->
+
+    <div class="brand-list" id="brand">
+        <div class="d-flex align-items-center justify-content-start">
+            <i onclick="fixedMenu('','brand')" class="fa fa-times pointer h5"></i>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 text-center">
+                <img src="./images/Avocat.jpg" alt="">
+                <p>Category Name</p>
+            </div>
+            <div class="col-12 col-sm-6 text-center">
+                <img src="./images/Avocat.jpg" alt="">
+                <p>Category Name</p>
+            </div><div class="col-12 col-sm-6 text-center">
+                <img src="./images/Avocat.jpg" alt="">
+                <p>Category Name</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- category list -->
+
+    <div class="brand-list" id="category">
+        <div class="d-flex align-items-center justify-content-start">
+            <i onclick="fixedMenu('','category')" class="fa fa-times pointer h5"></i>
+        </div>
+        <div class="row">
+            
+            <div class="col-12 col-sm-6 text-center">
+                <img src="./images/Avocat.jpg" alt="">
+                <p>Brand Name</p>
+            </div>
+            <div class="col-12 col-sm-6 text-center">
+                <img src="./images/Avocat.jpg" alt="">
+                <p>Brand Name</p>
+            </div><div class="col-12 col-sm-6 text-center">
+                <img src="./images/Avocat.jpg" alt="">
+                <p>Brand Name</p>
             </div>
         </div>
     </div>

@@ -8,9 +8,15 @@ img {
 h6 {
   font-size: 0.813rem;
 }
+ul,li{
+  list-style: none;
+}
 .logo img {
   width: 60px;
 }
+/* body{
+  color: #999;
+} */
 .pointer {
   cursor: pointer;
 }
@@ -310,4 +316,50 @@ table.table {
   outline: none;
   border: none;
   border-radius: 5px;
+}
+.fixed-menu-left{
+  max-width: 300px;
+  width:300px;
+  position: fixed;
+  top: 0;
+  left: -500px;
+  z-index: 99999;
+  background: #fff;
+  box-shadow: 0 4px 20px 1px rgb(0 0 0 / 6%);
+  height: 100%;
+  padding: 10px;
+  overflow-y: scroll;
+  transition: all 0.5s;
+}
+.fixed-menu-left ul li a{
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid #d1d5db;
+  padding-bottom: 5px;
+  font-size: 18px;
+  color: #999;
+}
+.fixed-menu-left.fixed-menu{
+  left: 0;
+}
+.brand-list{
+  position: fixed;
+  top: 0;
+  right: -500px;
+  z-index: 99999;
+  background: #fff;
+  box-shadow: 0 4px 20px 1px rgb(0 0 0 / 6%);
+  height: 100%;
+  padding: 10px;
+  overflow-y: scroll;
+  transition: all 0.5s;
+  width: 300px;
+  max-width: 300px;
+}
+#brand.fixed-menu{
+  right: 0;
+}
+#category.fixed-menu{
+  right: 0;
 }

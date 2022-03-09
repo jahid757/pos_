@@ -145,6 +145,7 @@ function grandTotal() {
     total += element.price * element.qt;
   }
   document.getElementById("grand-total").innerHTML = total;
+  document.getElementById("subTotal").value = total;
 }
 grandTotal();
 
@@ -156,3 +157,37 @@ function popUp(ind) {
     modal.style.display = "none";
   }
 }
+
+// fixed amount controls
+
+function fixedAmount(price) {
+  const input = document.getElementById("paid");
+  input.value = "";
+  input.value = price;
+  paidAmount();
+}
+
+// fixed menu controls
+function fixedMenu(id, id2) {
+  if (id !== "") {
+    const menu = document.getElementById(id);
+    menu.classList.add("fixed-menu");
+  } else if (id2 !== "") {
+    const menu2 = document.getElementById(id2);
+    menu2.classList.remove("fixed-menu");
+  }
+}
+
+
+// paid amount
+function paidAmount() {
+  const total = document.getElementById("subTotal").value;
+  const paid = document.getElementById("paid").value;
+  const change = paid - total;
+  if(paid == 0){
+    document.getElementById("change").value = `Pay Now`;
+  }else{
+    document.getElementById("change").value = `${change} Change`;
+  }
+}
+paidAmount();
