@@ -191,3 +191,21 @@ function paidAmount() {
   }
 }
 paidAmount();
+
+// display resolution
+function displayResolution(width,height) {
+  window.innerHeight = height;
+  window.innerWidth = width;
+}
+// open select option
+
+function openOption(id) {
+  const option = document.getElementById(id);
+  option.classList.toggle("active");
+}
+
+// open purchase popup
+function openPurchase(id) {
+  const purchase = document.getElementById(id);
+  purchase.classList.toggle("active");
+}
