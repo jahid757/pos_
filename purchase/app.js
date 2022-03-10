@@ -2,11 +2,16 @@
 
 // item add
 
+const storage = localStorage.getItem("posItemData");
+if (storage === null) {
+  localStorage.setItem("posItemData", JSON.stringify([]));
+}
+
 function addItem(name, id, price,qt) {
   const item = localStorage.getItem("posItemData");
   const itemData = JSON.parse(item);
 
-  if (itemData.length === 0) {
+  if (itemData.length === 0 || itemData === null) {
     window.localStorage.setItem(
       "posItemData",
       JSON.stringify([
