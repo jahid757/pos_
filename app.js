@@ -2,7 +2,7 @@
 
 // item add
 
-function addItem(name, id, price) {
+function addItem(name, id, price,qt) {
   const item = localStorage.getItem("posItemData");
   const itemData = JSON.parse(item);
 
@@ -14,7 +14,7 @@ function addItem(name, id, price) {
           name: name,
           id: id,
           price: price,
-          qt: 1,
+          qt: qt || 1,
         },
       ])
     );
@@ -36,7 +36,7 @@ function addItem(name, id, price) {
               name: name,
               id: id,
               price: price,
-              qt: 1,
+              qt: qt || 1,
             },
             ...JSON.parse(item),
           ])
@@ -81,7 +81,7 @@ function showItem() {
              </div>
             </div>
             </td>
-          <td>${element.price * element.qt}$</td>
+          <td>${(element.price * element.qt).toFixed(2)}$</td>
         </tr>
         `;
   }
@@ -116,6 +116,7 @@ function plus(id) {
   const value = (document.querySelector(`#${id}`).value = parseInt(qt) + 1);
   const qtId = id.replace("item", "");
   updateQt(qtId, value);
+  console.log(qtId, value);
 }
 
 function updateQt(id, qt) {
@@ -205,7 +206,47 @@ function openOption(id) {
 }
 
 // open purchase popup
-function openPurchase(id) {
-  const purchase = document.getElementById(id);
+function openPurchase(name,id,price,pic) {
+  const purchase = document.getElementById('popup2');
+  const qt = document.getElementById('itemInputId');
+  document.getElementById('pic').src = `./images/${pic}`;
+  document.getElementById('pdId').innerText = id;
+  document.getElementById('pdPrice').innerText = price;
+  document.getElementById('popSubtotal').innerText = Number(price * qt.value).toFixed(2);
+  document.getElementById('pdName').innerText = name;
+  purchase.classList.toggle("active");
+}
+
+// popup plus and minus
+
+function popPlus(){
+  const qt = document.getElementById('itemInputId').value;
+  document.getElementById('itemInputId').value = parseInt(qt) + 1;
+  const price = document.getElementById('pdPrice');
+  const subTotal = document.getElementById('popSubtotal');
+  const qtCurrent = document.getElementById('itemInputId').value;
+  subTotal.innerText = (price.innerText * qtCurrent).toFixed(2);
+}
+
+function popMinus(){
+  const qt = document.getElementById('itemInputId').value;
+  if(qt > 1){
+    document.getElementById('itemInputId').value = parseInt(qt) - 1;
+    const price = document.getElementById('pdPrice');
+    const subTotal = document.getElementById('popSubtotal');
+    const qtCurrent = document.getElementById('itemInputId').value;
+    subTotal.innerText = (price.innerText * qtCurrent).toFixed(2);
+  }
+}
+
+// added to json
+
+function addToJson() {
+  const name = document.getElementById('pdName').innerText;
+  const id = document.getElementById('pdId').innerText;
+  const price = document.getElementById('pdPrice').innerText;
+  const qt = document.getElementById('itemInputId').value;
+  addItem(name, id, price,qt)
+  const purchase = document.getElementById('popup2');
   purchase.classList.toggle("active");
 }

@@ -126,7 +126,7 @@
                         <div class="row">
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',19130839,10.00)" class="card pointer">
+                                <div onclick="openPurchase('Avocet',1930839,10.40,'Avocat.jpg')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -137,7 +137,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',19320840,10.00)" class="card pointer">
+                                <div onclick="openPurchase('Avocet',19320840,10.00,'Avocat.jpg')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -148,7 +148,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',93102839,10.00)" class="card pointer">
+                                <div onclick="openPurchase('Avocet',93102839,10.00,'Avocat.jpg')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -159,7 +159,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',19108329,10.00)" onclick="addItem('Avocet',1930839,10.00)" class="card pointer">
+                                <div onclick="openPurchase('Avocet',19108329,10.00,'Avocat.jpg')"  class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -170,7 +170,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',21938392,10.34)" class="card pointer">
+                                <div onclick="openPurchase('Avocet',21938392,10.34,'Avocat.jpg')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -181,7 +181,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',21930289,10.70)" class="card pointer">
+                                <div onclick="openPurchase('Avocet',21930289,10.70,'Avocat.jpg')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -192,7 +192,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',21930283,10.00)" class="card pointer">
+                                <div onclick="openPurchase('Avocet',21930283,10.00,'Avocat.jpg')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -411,13 +411,30 @@
 
     <!-- open popup  -->
    
-    <!-- <div class="popup2" id="popup2">
-        <img src="./images/Avocat.jpg" alt="">
+    <div class="popup2" id="popup2">
+        <img id="pic" src="https://i.ibb.co/dmWPWgF/code.png" alt="">
+        <p id="pdName" class="text-center"></p>
         <div class="d-flex align-items-center justify-content-between">
             <p>Product Id: <span id="pdId"></span></p>
-            <p>Product Price: <span id="pdId"></span></p>
+            <p>Product Price: <span id="pdPrice"></span>$</p>
         </div>
-    </div> -->
+        
+        <div class="qt d-flex align-items-center justify-content-between">
+            <div class="quantity">
+            <div role="group" class="input-group">
+            <div class="input-group-prepend">
+            <span onclick="popMinus()" class="btn btn-primary btn-sm">-</span>
+            </div> 
+            <input id="itemInputId" class="qt_input text-center" value="1"> 
+            <div class="input-group-append">
+            <span onclick="popPlus()"  class="btn btn-primary btn-sm">+</span>
+            </div>
+         </div>
+        </div>
+        <p>Subtotal: <span id="popSubtotal"></span></p>
+        <button onclick="addToJson()">Add</button>
+        </div>
+    </div>
 
 
     <!-- script -->

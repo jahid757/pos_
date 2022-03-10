@@ -432,12 +432,29 @@ table.table {
   display: block;
 }
 .popup2{
-  width: 250px;
-  max-width: 250px;
+  width: 350px;
+  max-width: 350px;
   position: fixed;
   top:50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
-
+  border: 1px solid #7c3aed;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+.popup2 .qt{
+  width: 100%;
+}
+.popup2.active{
+  display: block;
+}
+.popup2 button{
+  background: #7c3aed;
+  color: #fff;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
 }
