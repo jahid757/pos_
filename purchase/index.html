@@ -25,7 +25,7 @@
                         <i onclick="fixedMenu('menu_left','')" class="fa fa-bars"></i>
                     </div>
                     <div class="d-flex align-items-center">
-                        <i onclick="fixedMenu('display','')" class="pointer fa fa-globe me-2"></i>
+                        <!-- <i onclick="fixedMenu('display','')" class="pointer fa fa-globe me-2"></i> -->
                          <!-- display ratio -->
 
                         <div class="display" id="display">
@@ -37,7 +37,7 @@
                             <p onclick="displayResolution(1536,864)">1536×864</p>
                             <p onclick="displayResolution(414,896)">414×896</p>
                         </div>
-                        <button class="btn-warn">Clear Cache</button>
+                        <button class="btn-warn" onclick="clearCache()">Clear Cache</button>
                     </div>
                 </div>
 
@@ -109,16 +109,35 @@
             <div class="col-md-7">
                 <div class="card_right p-3">
                     <h6 class="mb-2">Product</h6>
-                    <div class="transform">
-                        
-                        <h4 onclick="fixedMenu('brand','category')">Category</h4>
-
-                        <h4  onclick="fixedMenu('category','brand')">Brand</h4>
-
-                    </div>
+                    
 
                     <div class="search mb-3">
                         <input type="text" class="input" placeholder="Search">
+                    </div>
+                    <div class="transform mb-3">
+                        
+
+                        <!-- <h4  onclick="fixedMenu('category','brand')">Brand</h4> -->
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <select name="category" id="categoryDrop">
+                                <option value="">Select Category</option>
+                                <option value="demo">demo</option>
+                                <option value="demo">demo</option>
+                                <option value="demo">demo</option>
+                                <option value="demo">demo</option>
+                                <option value="demo">demo</option>
+                            </select>
+                            <select name="brand" id="brandDrop">
+                                <option value="">Select Brand</option>
+                                <option value="demo">demo</option>
+                                <option value="demo">demo</option>
+                                <option value="demo">demo</option>
+                                <option value="demo">demo</option>
+                                <option value="demo">demo</option>
+                            </select>
+                        </div>
+
                     </div>
 
                     <div class="item">
@@ -361,11 +380,11 @@
         <div class="d-flex align-items-center justify-content-start">
             <i onclick="fixedMenu('','brand')" class="fa fa-times pointer h5"></i>
         </div>
-        <div class="wrapper">
+        <div class="calc_wrapper">
             <div class="">
               <h1>Calculator</h1>
               <div class="first-row">
-                <input class="calc" type="text" name="result" class="result" id="result" value="" placeholder="Result" readonly />
+                <input type="text" name="result" class="result calc" id="result" value="" placeholder="Result" readonly />
                 <input type="button" value="C" onclick="clearScreen()" id="clear" />
               </div>
               <div class="second-row">
@@ -419,32 +438,7 @@
         </div>
     </div>
 
-    <!-- open popup  -->
-   
-    <!-- <div class="popup2" id="popup2">
-        <img id="pic" src="https://i.ibb.co/dmWPWgF/code.png" alt="">
-        <p id="pdName" class="text-center"></p>
-        <div class="d-flex align-items-center justify-content-between">
-            <p>Product Id: <span id="pdId"></span></p>
-            <p>Product Price: <span id="pdPrice"></span>$</p>
-        </div>
-        
-        <div class="qt d-flex align-items-center justify-content-between">
-            <div class="quantity">
-            <div role="group" class="input-group">
-            <div class="input-group-prepend">
-            <span onclick="popMinus()" class="btn btn-primary btn-sm">-</span>
-            </div> 
-            <input id="itemInputId" class="qt_input text-center" value="1"> 
-            <div class="input-group-append">
-            <span onclick="popPlus()"  class="btn btn-primary btn-sm">+</span>
-            </div>
-         </div>
-        </div>
-        <p>Subtotal: <span id="popSubtotal"></span></p>
-        <button onclick="addToJson()">Add</button>
-        </div>
-    </div> -->
+
 
 
 
@@ -548,17 +542,16 @@
 
                             <div class="cs-input-group">
                                 <label for="batch">Manufacture Date:</label>
-                                <input placeholder="Manufacture Date:" type="text" name="manufactureDate" id="manufactureDate">
+                                <input placeholder="Manufacture Date:" type="date" name="manufactureDate" id="manufactureDate">
                             </div>
 
                             <div class="cs-input-group">
                                 <label for="batch">Expiry Date:</label>
-                                <input placeholder="Expiry Date:" type="text" name="expiryDate" id="expiryDate">
+                                <input placeholder="Expiry Date:" type="date" name="expiryDate" id="expiryDate">
                             </div>
 
                             <div class="button d-flex align-items-center justify-content-between">
-                                <button>Save</button>
-                                <button type="button">Cancel</button>
+                                <button type="button" onclick="newBatchId()">Save</button>
                             </div>
 
                         </form>
@@ -570,9 +563,18 @@
     </div>
 
 
+    <!-- alert message -->
+    <div class="alert" id="alert">
+        <div class="d-flex align-items-center justify-content-between">
+            <i class="fa fa-check me-2"></i>
+            <p class="mb-0">Successfully Done !</p>
+        </div>
+    </div>
 
-
-
+    <!-- calculator -->
+    <div class="calculator pointer">
+        <i onclick="fixedMenu('brand','category')" class="fa fa-calculator"></i>
+    </div>
 
 
 

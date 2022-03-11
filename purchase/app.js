@@ -3,8 +3,10 @@
 // item add
 
 const storage = localStorage.getItem("posItemDataPurchase");
-if (storage === null) {
+const batchStorage = localStorage.getItem("batchStorage");
+if (storage === null && batchStorage === null) {
   localStorage.setItem("posItemDataPurchase", JSON.stringify([]));
+  localStorage.setItem("batchStorage", JSON.stringify([]));
 }
 
 
@@ -153,38 +155,9 @@ function openOption(id) {
 }
 
 // open purchase popup
-function openPurchase(name,id,price,pic) {
-  const purchase = document.getElementById('popup2');
-  const qt = document.getElementById('itemInputId');
-  document.getElementById('pic').src = `./images/${pic}`;
-  document.getElementById('pdId').innerText = id;
-  document.getElementById('pdPrice').innerText = price;
-  document.getElementById('popSubtotal').innerText = Number(price * qt.value).toFixed(2);
-  document.getElementById('pdName').innerText = name;
-  purchase.classList.toggle("active");
-}
 
-// popup plus and minus
 
-function popPlus(){
-  const qt = document.getElementById('itemInputId').value;
-  document.getElementById('itemInputId').value = parseInt(qt) + 1;
-  const price = document.getElementById('pdPrice');
-  const subTotal = document.getElementById('popSubtotal');
-  const qtCurrent = document.getElementById('itemInputId').value;
-  subTotal.innerText = (price.innerText * qtCurrent).toFixed(2);
-}
 
-function popMinus(){
-  const qt = document.getElementById('itemInputId').value;
-  if(qt > 1){
-    document.getElementById('itemInputId').value = parseInt(qt) - 1;
-    const price = document.getElementById('pdPrice');
-    const subTotal = document.getElementById('popSubtotal');
-    const qtCurrent = document.getElementById('itemInputId').value;
-    subTotal.innerText = (price.innerText * qtCurrent).toFixed(2);
-  }
-}
 
 // added to json
 
@@ -236,6 +209,9 @@ function addToJson() {
       ])
     );
   }
+  showItem();
+  popUp(false,'modal2');
+  alertMessage()
 }
 
 const inputValue = (id) =>{
@@ -246,8 +222,6 @@ const inputValue = (id) =>{
 
 
 
-let lightTheme = "styles/light.css";
-let darkTheme = "styles/dark.css";
 
 //adding event handler on the document to handle keyboard inputs
 document.addEventListener("keydown", keyboardInputHandler);
@@ -323,4 +297,67 @@ function liveScreen(value) {
     res.value = "";
   }
   res.value += value;
+}
+
+// alert message
+
+function alertMessage() {
+  const alert = document.getElementById('alert');
+  alert.classList.add('active');
+
+  setTimeout(() => {
+    alert.classList.remove('active');
+  } , 3000);
+  
+}
+
+// add new batch
+function newBatchId(){
+  const batch = inputValue('batch');
+  const discount = inputValue('batchDiscount');
+  const mrp = inputValue('mrp');
+  const retail = inputValue('retail');
+  const menuFactureDate = inputValue('manufactureDate');
+  const expiryDate = inputValue('expiryDate');
+
+  
+  const item = localStorage.getItem("batchStorage");
+  const itemData = JSON.parse(item);
+  if (itemData.length === 0) {
+    window.localStorage.setItem(
+      "batchStorage",
+      JSON.stringify([
+        {
+          batch: batch,
+          discount: discount,
+          mrp: mrp,
+          retail: retail,
+          menuFactureDate: menuFactureDate,
+          expiryDate: expiryDate,
+        }
+      ])
+    );
+  }else{
+    window.localStorage.setItem(
+      "batchStorage",
+      JSON.stringify([
+        {
+          batch: batch,
+          discount: discount,
+          mrp: mrp,
+          retail: retail,
+          menuFactureDate: menuFactureDate,
+          expiryDate: expiryDate,
+        }, ...itemData,
+      ])
+    );
+  }
+
+}
+
+function clearCache(){
+  alertMessage()
+  setTimeout(() => {
+    window.location.reload();
+  }, 1000);
 }
