@@ -456,6 +456,7 @@ table tbody tr:nth-child(odd) {
   padding: 5px 15px;
   border: 1px solid #8950FC;
   outline: none;
+  color: #8950FC;
 }
 .button button:nth-child(1){
   background: #7c3aed;
@@ -507,17 +508,7 @@ table tbody tr:nth-child(odd) {
 .result {
   width: 59.1%;
 }
-input {
-  padding: 25px;
-  color: rgb(255, 255, 255);
-  font-size: 1em;
-  cursor: pointer;
-  width: 24%;
-  background-color: #7c3aed;
-  border: none;
-  outline: none;
-  border-radius: 4px;
-}
+
 
 .first-row,
 .second-row,
