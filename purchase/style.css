@@ -458,3 +458,14 @@ table.table {
   border-radius: 5px;
   outline: none;
 }
+.button button{
+  border-radius: 5px;
+  padding: 5px 15px;
+  border: 1px solid #8950FC;
+  outline: none;
+}
+.button button:nth-child(1){
+  background: #7c3aed;
+  color: #fff;
+  border-radius: 5px;
+}

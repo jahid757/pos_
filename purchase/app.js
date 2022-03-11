@@ -1,19 +1,19 @@
 "use strict";
-
+// purchase
 // item add
 
-const storage = localStorage.getItem("posItemData");
+const storage = localStorage.getItem("posItemDataPurchase");
 if (storage === null) {
-  localStorage.setItem("posItemData", JSON.stringify([]));
+  localStorage.setItem("posItemDataPurchase", JSON.stringify([]));
 }
 
 function addItem(name, id, price,qt) {
-  const item = localStorage.getItem("posItemData");
+  const item = localStorage.getItem("posItemDataPurchase");
   const itemData = JSON.parse(item);
 
   if (itemData.length === 0 || itemData === null) {
     window.localStorage.setItem(
-      "posItemData",
+      "posItemDataPurchase",
       JSON.stringify([
         {
           name: name,
@@ -30,12 +30,12 @@ function addItem(name, id, price,qt) {
       if (element.id === Number(id)) {
         element.qt += 1;
         const newItem = JSON.stringify(itemData);
-        window.localStorage.setItem("posItemData", newItem);
+        window.localStorage.setItem("posItemDataPurchase", newItem);
         showItem();
         return;
       } else {
         window.localStorage.setItem(
-          "posItemData",
+          "posItemDataPurchase",
           JSON.stringify([
             {
               name: name,
@@ -56,7 +56,7 @@ function addItem(name, id, price,qt) {
 // show item
 
 function showItem() {
-  const item = localStorage.getItem("posItemData");
+  const item = localStorage.getItem("posItemDataPurchase");
   const itemData = JSON.parse(item);
 
   let html = "";
@@ -99,7 +99,7 @@ showItem();
 // reset data
 
 function resetData() {
-  localStorage.setItem("posItemData", JSON.stringify([]));
+  localStorage.setItem("posItemDataPurchase", JSON.stringify([]));
   showItem();
   grandTotal();
 }
@@ -125,7 +125,7 @@ function plus(id) {
 }
 
 function updateQt(id, qt) {
-  const item = localStorage.getItem("posItemData");
+  const item = localStorage.getItem("posItemDataPurchase");
   const itemData = JSON.parse(item);
 
   for (let i = 0; i < itemData.length; i++) {
@@ -134,7 +134,7 @@ function updateQt(id, qt) {
       element.qt = qt;
     }
   }
-  localStorage.setItem("posItemData", JSON.stringify(itemData));
+  localStorage.setItem("posItemDataPurchase", JSON.stringify(itemData));
   showItem();
   grandTotal();
 }
@@ -142,7 +142,7 @@ function updateQt(id, qt) {
 // grand Total
 
 function grandTotal() {
-  const item = localStorage.getItem("posItemData");
+  const item = localStorage.getItem("posItemDataPurchase");
   const itemData = JSON.parse(item);
 
   let total = 0;
@@ -155,8 +155,8 @@ function grandTotal() {
 }
 grandTotal();
 
-function popUp(ind) {
-  const modal = document.getElementById("modal");
+function popUp(ind,id) {
+  const modal = document.getElementById(id);
   if (ind === true) {
     modal.style.display = "block";
   } else {
@@ -247,11 +247,47 @@ function popMinus(){
 // added to json
 
 function addToJson() {
-  const name = document.getElementById('pdName').innerText;
-  const id = document.getElementById('pdId').innerText;
-  const price = document.getElementById('pdPrice').innerText;
-  const qt = document.getElementById('itemInputId').value;
-  addItem(name, id, price,qt)
-  const purchase = document.getElementById('popup2');
-  purchase.classList.toggle("active");
+  const serial = inputValue('serial');
+  const ram = inputValue('ram');
+  const color = inputValue('color');
+  const imei = inputValue('imei');
+  const imei2 = inputValue('imei2');
+  const storage = inputValue('storage');
+
+  const item = localStorage.getItem("posItemDataPurchase");
+  const itemData = JSON.parse(item);
+  if (itemData.length === 0) {
+    window.localStorage.setItem(
+      "posItemDataPurchase",
+      JSON.stringify([
+        {
+          serial: serial,
+          ram: ram,
+          color: color,
+          imei: imei,
+          imei2: imei2,
+          storage: storage,
+        }
+      ])
+    );
+  }else{
+    window.localStorage.setItem(
+      "posItemDataPurchase",
+      JSON.stringify([
+        {
+          serial: serial,
+          ram: ram,
+          color: color,
+          imei: imei,
+          imei2: imei2,
+          storage: storage,
+        }, ...itemData,
+      ])
+    );
+  }
+}
+
+const inputValue = (id) =>{
+  const input = document.getElementById(id);
+  return input.value;
 }

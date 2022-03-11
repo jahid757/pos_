@@ -1,25 +1,25 @@
 "use strict";
-
+// sell
 // item add
 
-const storage = localStorage.getItem("posItemData");
+const storage = localStorage.getItem("posItemDataSell");
 if (storage === null) {
-  localStorage.setItem("posItemData", JSON.stringify([]));
+  localStorage.setItem("posItemDataSell", JSON.stringify([]));
 }
 
-function addItem(name, id, price,qt) {
-  const item = localStorage.getItem("posItemData");
+function addItem(name, id, price) {
+  const item = localStorage.getItem("posItemDataSell");
   const itemData = JSON.parse(item);
 
   if (itemData.length === 0) {
     window.localStorage.setItem(
-      "posItemData",
+      "posItemDataSell",
       JSON.stringify([
         {
           name: name,
           id: id,
           price: price,
-          qt: qt || 1,
+          qt:  1,
         },
       ])
     );
@@ -30,18 +30,18 @@ function addItem(name, id, price,qt) {
       if (element.id === Number(id)) {
         element.qt += 1;
         const newItem = JSON.stringify(itemData);
-        window.localStorage.setItem("posItemData", newItem);
+        window.localStorage.setItem("posItemDataSell", newItem);
         showItem();
         return;
       } else {
         window.localStorage.setItem(
-          "posItemData",
+          "posItemDataSell",
           JSON.stringify([
             {
               name: name,
               id: id,
               price: price,
-              qt: qt || 1,
+              qt:  1,
             },
             ...JSON.parse(item),
           ])
@@ -56,7 +56,7 @@ function addItem(name, id, price,qt) {
 // show item
 
 function showItem() {
-  const item = localStorage.getItem("posItemData");
+  const item = localStorage.getItem("posItemDataSell");
   const itemData = JSON.parse(item);
 
   let html = "";
@@ -99,7 +99,7 @@ showItem();
 // reset data
 
 function resetData() {
-  localStorage.setItem("posItemData", JSON.stringify([]));
+  localStorage.setItem("posItemDataSell", JSON.stringify([]));
   showItem();
   grandTotal();
 }
@@ -125,7 +125,7 @@ function plus(id) {
 }
 
 function updateQt(id, qt) {
-  const item = localStorage.getItem("posItemData");
+  const item = localStorage.getItem("posItemDataSell");
   const itemData = JSON.parse(item);
 
   for (let i = 0; i < itemData.length; i++) {
@@ -134,7 +134,7 @@ function updateQt(id, qt) {
       element.qt = qt;
     }
   }
-  localStorage.setItem("posItemData", JSON.stringify(itemData));
+  localStorage.setItem("posItemDataSell", JSON.stringify(itemData));
   showItem();
   grandTotal();
 }
@@ -142,7 +142,7 @@ function updateQt(id, qt) {
 // grand Total
 
 function grandTotal() {
-  const item = localStorage.getItem("posItemData");
+  const item = localStorage.getItem("posItemDataSell");
   const itemData = JSON.parse(item);
 
   let total = 0;
@@ -210,48 +210,3 @@ function openOption(id) {
   option.classList.toggle("active");
 }
 
-// open purchase popup
-function openPurchase(name,id,price,pic) {
-  const purchase = document.getElementById('popup2');
-  const qt = document.getElementById('itemInputId');
-  document.getElementById('pic').src = `./images/${pic}`;
-  document.getElementById('pdId').innerText = id;
-  document.getElementById('pdPrice').innerText = price;
-  document.getElementById('popSubtotal').innerText = Number(price * qt.value).toFixed(2);
-  document.getElementById('pdName').innerText = name;
-  purchase.classList.toggle("active");
-}
-
-// popup plus and minus
-
-function popPlus(){
-  const qt = document.getElementById('itemInputId').value;
-  document.getElementById('itemInputId').value = parseInt(qt) + 1;
-  const price = document.getElementById('pdPrice');
-  const subTotal = document.getElementById('popSubtotal');
-  const qtCurrent = document.getElementById('itemInputId').value;
-  subTotal.innerText = (price.innerText * qtCurrent).toFixed(2);
-}
-
-function popMinus(){
-  const qt = document.getElementById('itemInputId').value;
-  if(qt > 1){
-    document.getElementById('itemInputId').value = parseInt(qt) - 1;
-    const price = document.getElementById('pdPrice');
-    const subTotal = document.getElementById('popSubtotal');
-    const qtCurrent = document.getElementById('itemInputId').value;
-    subTotal.innerText = (price.innerText * qtCurrent).toFixed(2);
-  }
-}
-
-// added to json
-
-function addToJson() {
-  const name = document.getElementById('pdName').innerText;
-  const id = document.getElementById('pdId').innerText;
-  const price = document.getElementById('pdPrice').innerText;
-  const qt = document.getElementById('itemInputId').value;
-  addItem(name, id, price,qt)
-  const purchase = document.getElementById('popup2');
-  purchase.classList.toggle("active");
-}

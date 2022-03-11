@@ -106,7 +106,7 @@
                     <h3 class="grand_total"> Grand Total <span id="grand-total"></span> <span>$</span></h3>
                     <div class="d-flex align-items-center justify-content-around pos-btn mb-3">
                         <button onclick="resetData()" class="danger"><i class="fa fa-power-off me-1"></i>Reset</button>
-                        <button onclick="popUp(true)" class="primary"><i class="fa fa-dollar-sign me-1"></i>Pay Now</button>
+                        <button onclick="popUp(true,'modal')" class="primary"><i class="fa fa-dollar-sign me-1"></i>Pay Now</button>
                     </div>
                 </div>
                   
@@ -126,7 +126,7 @@
                         <div class="row">
 
                             <div class="col-3 mb-3">
-                                <div onclick="openPurchase('Avocet',1930839,10.40,'Avocat.jpg')" class="card pointer">
+                                <div onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -137,7 +137,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="openPurchase('Avocet',19320840,10.00,'Avocat.jpg')" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -148,7 +148,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="openPurchase('Avocet',93102839,10.00,'Avocat.jpg')" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -159,7 +159,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="openPurchase('Avocet',19108329,10.00,'Avocat.jpg')"  class="card pointer">
+                                <div  onclick="popUp(true,'modal2')"  class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -170,7 +170,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="openPurchase('Avocet',21938392,10.34,'Avocat.jpg')" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -181,7 +181,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="openPurchase('Avocet',21930289,10.70,'Avocat.jpg')" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -192,7 +192,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="openPurchase('Avocet',21930283,10.00,'Avocat.jpg')" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -338,7 +338,7 @@
                             <textarea placeholder="Note" name="note" id="note" cols="30" rows="10"></textarea>
                         </div>
                         <div class="d-flex align-items-center justify-content-end">
-                            <button class="close" onclick="popUp(false)">Close</button>
+                            <button class="close" onclick="popUp(false,'modal')">Close</button>
                         </div>
                     </div>
                 </div>
@@ -411,7 +411,7 @@
 
     <!-- open popup  -->
    
-    <div class="popup2" id="popup2">
+    <!-- <div class="popup2" id="popup2">
         <img id="pic" src="https://i.ibb.co/dmWPWgF/code.png" alt="">
         <p id="pdName" class="text-center"></p>
         <div class="d-flex align-items-center justify-content-between">
@@ -434,7 +434,82 @@
         <p>Subtotal: <span id="popSubtotal"></span></p>
         <button onclick="addToJson()">Add</button>
         </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+    <div class="popup_container" id="modal2">
+        <div class="container">
+            <div class="row">
+                <div class="d-flex justify-content-between align-items-center py-2 px-4">
+                    <h4>Add Details</h4>
+                    <i onclick="popUp(false,'modal2')" class="fa pointer fa-times"></i>
+                </div>
+                <div class="col-md-6">
+                    <div class="right">
+                        
+                        <div class="cs-input-group">
+                            <label for="serial">Serial No</label>
+                            <input id="serial" placeholder="Serial No" type="text" name="serial">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="ram">Ram</label>
+                            <input placeholder="Ram" type="text" name="ram" id="ram">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="color">Color</label>
+                            <input placeholder="Color" type="text" name="color" id="color">
+                        </div>
+
+
+                        <div class="button">
+                            <button onclick="addToJson()">Add</button>
+                            <button onclick="popUp(false,'modal2')">Cancel</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="left">
+                        <div class="cs-input-group">
+                            <label for="imei">IMEI No</label>
+                            <input id="imei" placeholder="IMEI No" type="text" name="imei">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="ram">IMEI No 2</label>
+                            <input placeholder="IMEI No 2" type="text" name="imei2" id="imei2">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="color">Storage</label>
+                            <input placeholder="Storage" type="text" name="storage" id="storage">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
+
+
+
+
+
+
+
 
 
     <!-- script -->
