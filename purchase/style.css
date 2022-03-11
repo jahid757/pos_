@@ -194,25 +194,16 @@ table tbody tr:nth-child(odd) {
 }
 .transform h4 {
   font-size: 1rem;
-  margin-bottom: 20px;
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
   background: #7c3aed;
   width: fit-content;
   color: #ffffff;
-  position: fixed;
-  transform: rotate(270deg);
   cursor: pointer;
+  display: inline-block;
 }
-.transform .category h4 {
-  top: 30%;
-  right: -30px;
-}
-.transform .brand h4 {
-  top: 45%;
-  right: -17px;
-}
+
 .popup_container {
   position: fixed;
   top: 50%;
@@ -359,8 +350,8 @@ table tbody tr:nth-child(odd) {
   padding: 10px;
   overflow-y: scroll;
   transition: all 0.5s;
-  width: 300px;
-  max-width: 300px;
+  width: 400px;
+  max-width: 400px;
 }
 #brand.fixed-menu{
   right: 0;
@@ -501,4 +492,71 @@ table tbody tr:nth-child(odd) {
   outline: none;
   border-radius: 5px;
   padding: 10px;
+}
+
+/* .left_form,.left_form .cs-input-group,.left_form legend,.left_form label,.left_form .cs-input-group input{
+  width: 100%;
+  display: block;
+} */
+
+
+
+.container {
+  width: 100%;
+}
+.result {
+  width: 59.1%;
+}
+input {
+  padding: 25px;
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  cursor: pointer;
+  width: 24%;
+  background-color: #7c3aed;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+.first-row,
+.second-row,
+.third-row,
+.fourth-row,
+.fifth-row {
+  margin-bottom: 3px;
+}
+input.calc::placeholder {
+  color: rgb(221, 221, 221);
+}
+input.calc {
+  width: 74%;
+  color: #fff;
+}
+input[type="button"]:hover {
+  background-color: #8b5cf6;
+  color: #fff;
+}
+#clear {
+  color: #fff;
+  background-color: rgb(139, 49, 49);
+}
+button {
+  border: none;
+  /* background-color: rgb(39, 36, 36); */
+  padding: 8px;
+  color: white;
+  margin: 2px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 200;
+  font-weight: 600;
+}
+
+
+.bottom-buttons {
+  display: flex;
+  margin-left: -2.3px;
 }

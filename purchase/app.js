@@ -7,51 +7,6 @@ if (storage === null) {
   localStorage.setItem("posItemDataPurchase", JSON.stringify([]));
 }
 
-function addItem(name, id, price,qt) {
-  const item = localStorage.getItem("posItemDataPurchase");
-  const itemData = JSON.parse(item);
-
-  if (itemData.length === 0 || itemData === null) {
-    window.localStorage.setItem(
-      "posItemDataPurchase",
-      JSON.stringify([
-        {
-          name: name,
-          id: id,
-          price: price,
-          qt: qt || 1,
-        },
-      ])
-    );
-    showItem();
-  } else {
-    for (let i = 0; i < itemData.length; i++) {
-      const element = itemData[i];
-      if (element.id === Number(id)) {
-        element.qt += 1;
-        const newItem = JSON.stringify(itemData);
-        window.localStorage.setItem("posItemDataPurchase", newItem);
-        showItem();
-        return;
-      } else {
-        window.localStorage.setItem(
-          "posItemDataPurchase",
-          JSON.stringify([
-            {
-              name: name,
-              id: id,
-              price: price,
-              qt: qt || 1,
-            },
-            ...JSON.parse(item),
-          ])
-        );
-        showItem();
-        return;
-      }
-    }
-  }
-}
 
 // show item
 
@@ -65,28 +20,15 @@ function showItem() {
 
     html += `
         <tr>
-            <td>${element.name}</td>
-              <td>${element.price}$</td>
-                <td>
-                <div class="quantity">
-                <div role="group" class="input-group">
-                <div class="input-group-prepend">
-                <span onclick="minus('item${
-                  element.id
-                }')" class="btn btn-primary btn-sm">-</span>
-                </div> 
-                <input id="item${
-                  element.id
-                }" class="qt_input text-center" value="${element.qt}"> 
-                <div class="input-group-append">
-                <span onclick="plus('item${
-                  element.id
-                }')"  class="btn btn-primary btn-sm">+</span>
-                </div>
-             </div>
-            </div>
-            </td>
-          <td>${(element.price * element.qt).toFixed(2)}$</td>
+            <td>${element.batchId}</td>
+              <td>${element.qty}</td>
+              <td>${element.totalPrice}</td>
+              <td>${element.fee}</td>
+              <td>${element.price}</td>
+              <td>${element.basic}</td>
+              <td>${element.dis}</td>
+              <td>${element.tax}</td>
+              <td>${element.amount}</td>
         </tr>
         `;
   }
@@ -148,7 +90,7 @@ function grandTotal() {
   let total = 0;
   for (let i = 0; i < itemData.length; i++) {
     const element = itemData[i];
-    total += element.price * element.qt;
+    total += element.totalPrice * element.qty;
   }
   document.getElementById("grand-total").innerHTML = total;
   document.getElementById("subTotal").value = total;
@@ -247,12 +189,15 @@ function popMinus(){
 // added to json
 
 function addToJson() {
-  const serial = inputValue('serial');
-  const ram = inputValue('ram');
-  const color = inputValue('color');
-  const imei = inputValue('imei');
-  const imei2 = inputValue('imei2');
-  const storage = inputValue('storage');
+  const batchId = inputValue('batch');
+  const qty = inputValue('qyt');
+  const totalPrice = inputValue('tPrice');
+  const fee = inputValue('free');
+  const price = inputValue('price');
+  const basic = inputValue('basic');
+  const dis = inputValue('discount');
+  const tax = inputValue('tax');
+  const amount = inputValue('amount');
 
   const item = localStorage.getItem("posItemDataPurchase");
   const itemData = JSON.parse(item);
@@ -261,12 +206,15 @@ function addToJson() {
       "posItemDataPurchase",
       JSON.stringify([
         {
-          serial: serial,
-          ram: ram,
-          color: color,
-          imei: imei,
-          imei2: imei2,
-          storage: storage,
+          batchId: batchId,
+          qty: qty,
+          totalPrice: totalPrice,
+          fee: fee,
+          price: price,
+          basic: basic,
+          dis: dis,
+          tax: tax,
+          amount: amount,
         }
       ])
     );
@@ -275,12 +223,15 @@ function addToJson() {
       "posItemDataPurchase",
       JSON.stringify([
         {
-          serial: serial,
-          ram: ram,
-          color: color,
-          imei: imei,
-          imei2: imei2,
-          storage: storage,
+          batchId: batchId,
+          qty: qty,
+          totalPrice: totalPrice,
+          fee: fee,
+          price: price,
+          basic: basic,
+          dis: dis,
+          tax: tax,
+          amount: amount,
         }, ...itemData,
       ])
     );
@@ -290,4 +241,86 @@ function addToJson() {
 const inputValue = (id) =>{
   const input = document.getElementById(id);
   return input.value;
+}
+
+
+
+
+let lightTheme = "styles/light.css";
+let darkTheme = "styles/dark.css";
+
+//adding event handler on the document to handle keyboard inputs
+document.addEventListener("keydown", keyboardInputHandler);
+
+//function to handle keyboard inputs
+function keyboardInputHandler(e) {
+  //grabbing the liveScreen
+  let res = document.getElementById("result");
+
+  //numbers
+  if (e.key === "0") {
+    res.value += "0";
+  } else if (e.key === "1") {
+    res.value += "1";
+  } else if (e.key === "2") {
+    res.value += "2";
+  } else if (e.key === "3") {
+    res.value += "3";
+  } else if (e.key === "4") {
+    res.value += "4";
+  } else if (e.key === "5") {
+    res.value += "5";
+  } else if (e.key === "6") {
+    res.value += "6";
+  } else if (e.key === "7") {
+    res.value += "7";
+  } else if (e.key === "7") {
+    res.value += "7";
+  } else if (e.key === "8") {
+    res.value += "8";
+  } else if (e.key === "9") {
+    res.value += "9";
+  }
+
+  //operators
+  if (e.key === "+") {
+    res.value += "+";
+  } else if (e.key === "-") {
+    res.value += "-";
+  } else if (e.key === "*") {
+    res.value += "*";
+  } else if (e.key === "/") {
+    res.value += "/";
+  }
+
+  //decimal key
+  if (e.key === ".") {
+    res.value += ".";
+  }
+
+  //press enter to see result
+  if (e.key === "Enter") {
+    res.value = eval(result.value || null);
+  }
+
+  //backspace for removing the last input
+  if (e.key === "Backspace") {
+    let resultInput = res.value;
+
+    //remove the last element in the string
+    res.value = resultInput.substring(0, res.value.length - 1);
+  }
+}
+
+// Clears the screen on click of C button.
+function clearScreen() {
+  document.getElementById("result").value = "";
+}
+// Displays entered value on screen.
+function liveScreen(value) {
+  let res = document.getElementById("result");
+  if (!res.value) {
+    res.value = "";
+  }
+  res.value += value;
 }

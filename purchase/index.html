@@ -43,19 +43,6 @@
 
                 <div class="p-3">
                     <div class="create_customer last_select">
-                        <!-- <div class="d-flex align-items-center mb-2"> -->
-                            <!-- <select class="active" name="">
-                                <option value="demo" selected> Select</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                            </select>
-                            <i class="fa pointer fa-user-plus"></i> -->
                             <ul class="select_ul">
                                 <li style="position:relative"> <span onclick="openOption('select')">Select</span>
                                     <div class="select-option" id="select">
@@ -92,10 +79,15 @@
                     <table class="table">
                         <thead style="border-bottom: 2px solid transparent;">
                             <tr>
-                                <th>Product</th>
+                                <th>Batch Id:</th>
+                                <th>Qty: </th>
+                                <th>Total Price:</th>
+                                <th>Fee</th>
                                 <th>Price</th>
-                                <th>Qyt</th>
-                                <th>Subtotal</th>
+                                <th>Basic</th>
+                                <th>Dis</th>
+                                <th>Tax</th>
+                                <th>Amount</th>
                             </tr>
                         </thead>
                         <tbody id="item-list"></tbody>
@@ -117,6 +109,13 @@
             <div class="col-md-7">
                 <div class="card_right p-3">
                     <h6 class="mb-2">Product</h6>
+                    <div class="transform">
+                        
+                        <h4 onclick="fixedMenu('brand','category')">Category</h4>
+
+                        <h4  onclick="fixedMenu('category','brand')">Brand</h4>
+
+                    </div>
 
                     <div class="search mb-3">
                         <input type="text" class="input" placeholder="Search">
@@ -216,17 +215,7 @@
                     </div>
 
 
-                    <div class="transform">
-                        
-                        <div class="category">
-                            <h4 onclick="fixedMenu('brand','category')">Category</h4>
-                        </div>
-
-                        <div class="brand">
-                            <h4  onclick="fixedMenu('category','brand')">Brand</h4>
-                        </div>
-
-                    </div>
+                    
 
 
 
@@ -372,19 +361,40 @@
         <div class="d-flex align-items-center justify-content-start">
             <i onclick="fixedMenu('','brand')" class="fa fa-times pointer h5"></i>
         </div>
-        <div class="row">
-            <div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Category Name</p>
+        <div class="wrapper">
+            <div class="">
+              <h1>Calculator</h1>
+              <div class="first-row">
+                <input class="calc" type="text" name="result" class="result" id="result" value="" placeholder="Result" readonly />
+                <input type="button" value="C" onclick="clearScreen()" id="clear" />
+              </div>
+              <div class="second-row">
+                <input type="button" value="1" onclick="liveScreen(1)" id="one" />
+                <input type="button" value="2" onclick="liveScreen(2)" id="two" />
+                <input type="button" value="3" id="three" onclick="liveScreen(3)" />
+                <input type="button" value="+" onclick="liveScreen('+')" />
+              </div>
+              <div class="third-row">
+                <input type="button" value="4" id="four" onclick="liveScreen(4)" />
+                <input type="button" value="5" id="five" onclick="liveScreen(5)" />
+                <input type="button" value="6" id="six" onclick="liveScreen(6)" />
+                <input type="button" value="-" onclick="liveScreen('-')" />
+              </div>
+              <div class="fourth-row">
+                <input type="button" value="7" id="seven" onclick="liveScreen(7)" />
+                <input type="button" value="8" id="eight" onclick="liveScreen(8)" />
+                <input type="button" value="9" id="nine" onclick="liveScreen(9)" />
+                <input type="button" value="x" onclick="liveScreen('*')" />
+              </div>
+              <div class="fifth-row">
+                <input type="button" value="/" onclick="liveScreen('/')" />
+        
+                <input type="button" value="0" id="zero" onclick="liveScreen(0)" />
+                <input type="button" value="." class="dot" onclick="liveScreen('.')" />
+                <input type="button" value="=" onclick="result.value = eval(result.value||null)" />
+              </div>
             </div>
-            <div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Category Name</p>
-            </div><div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Category Name</p>
-            </div>
-        </div>
+          </div>
     </div>
 
     <!-- category list -->
@@ -462,7 +472,7 @@
 
                         <div class="cs-input-group">
                             <label for="ram">Total Price</label>
-                            <input placeholder="Total Price" type="text" name="tPrice id="tPrice">
+                            <input placeholder="Total Price" type="text" name="tPrice" id="tPrice">
                         </div>
 
                         <div class="cs-input-group">
@@ -496,9 +506,9 @@
                         </div>
 
 
-                        <div class="button">
+                        <div class="button d-flex align-items-center justify-content-between">
                             <button onclick="addToJson()">Add</button>
-                            <button onclick="popUp(false,'modal2')">Cancel</button>
+                            <button onclick="popUp(false,'modal2')">Close</button>
                         </div>
 
                     </div>
@@ -508,13 +518,50 @@
                         <div class="cs-input-group">
                             <label for="imei">Batch Id</label>
                             <select name="batch" id="batch">
-                                <option value="">Select Batch</option>
                                 <option value="1">Batch 1</option>
                                 <option value="2">Batch 2</option>
                                 <option value="3">Batch 3</option>
                             </select>
                         </div>
 
+                        <form action="" class="left_form">
+                                <legend>Add New Batch</legend>
+                            <div class="cs-input-group">
+                                <label for="batch">Batch Id</label>
+                                <input placeholder="Batch Id" type="text" name="batch" id="batch">
+                            </div>
+                            
+                            <div class="cs-input-group">
+                                <label for="batch">Discount%:</label>
+                                <input placeholder="Discount" type="text" name="batchDiscount" id="batchDiscount">
+                            </div>
+
+                            <div class="cs-input-group">
+                                <label for="batch">MRP:</label>
+                                <input placeholder="MRP" type="text" name="mrp" id="mrp">
+                            </div>
+
+                            <div class="cs-input-group">
+                                <label for="batch">Retail Price:</label>
+                                <input placeholder="Retail Price:" type="text" name="retail" id="retail">
+                            </div>
+
+                            <div class="cs-input-group">
+                                <label for="batch">Manufacture Date:</label>
+                                <input placeholder="Manufacture Date:" type="text" name="manufactureDate" id="manufactureDate">
+                            </div>
+
+                            <div class="cs-input-group">
+                                <label for="batch">Expiry Date:</label>
+                                <input placeholder="Expiry Date:" type="text" name="expiryDate" id="expiryDate">
+                            </div>
+
+                            <div class="button d-flex align-items-center justify-content-between">
+                                <button>Save</button>
+                                <button type="button">Cancel</button>
+                            </div>
+
+                        </form>
 
                     </div>
                 </div>
