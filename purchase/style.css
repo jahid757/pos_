@@ -79,7 +79,9 @@ ul,li{
 }
 .card_left {
   box-shadow: 0 4px 20px 1px rgb(0 0 0 / 6%), 0 1px 4px rgb(0 0 0 / 8%);
-  position: fixed;
+  /* position: fixed; */
+  height: 100%;
+  position: relative;
 }
 .last_select {
   border-bottom: 2px solid #d1d5db !important;
@@ -88,9 +90,9 @@ ul,li{
 table tbody tr:nth-child(odd) {
   background: #f3f2f4;
 }
-table.table {
+/* table.table {
   width: 565px;
-}
+} */
 .qt_input {
   width: 30px;
   outline: none;
@@ -105,10 +107,10 @@ table.table {
   max-width: 100%;
 }
 .payment {
-  /* position: fixed; */
+  position: absolute;
   bottom: 0;
-  /* width: 613px; */
-  max-width: 613px;
+  /* max-width: 613px; */
+  width: 100%;
 }
 .payment h3 {
   width: 100%;
@@ -469,3 +471,27 @@ table.table {
   color: #fff;
   border-radius: 5px;
 }
+
+@media (max-width: 767px){
+  .payment {
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+  }
+  table.table{
+    width:760px;
+  }
+}
+
+@media (max-width: 575px){
+  .item .col-3{
+    width: 33%;
+  }
+}
+
+@media (max-width: 350px){
+  .item .col-3{
+    width: 50%;
+  }
+}
+
