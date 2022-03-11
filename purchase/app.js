@@ -149,9 +149,11 @@ function displayResolution(width,height) {
 }
 // open select option
 
-function openOption(id) {
+function openOption(id,id2) {
   const option = document.getElementById(id);
+  const option2 = document.getElementById(id2);
   option.classList.toggle("active");
+  option2.classList.remove("active");
 }
 
 // open purchase popup
@@ -361,3 +363,10 @@ function clearCache(){
     window.location.reload();
   }, 1000);
 }
+
+// select option
+
+document.getElementById('item_value').addEventListener('click', (e) => {
+  const value = e.target.textContent;
+  document.getElementById('select_value').innerText = value;
+})

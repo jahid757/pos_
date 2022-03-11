@@ -44,30 +44,43 @@
                 <div class="p-3">
                     <div class="create_customer last_select">
                             <ul class="select_ul">
-                                <li style="position:relative"> <span onclick="openOption('select')">Select</span>
+                                <li style="position:relative"> <span id="select_value" onclick="openOption('select','select2')">Select</span>
                                     <div class="select-option" id="select">
                                         <input type="text" placeholder="Search">
-                                        <p>+Add New</p>
+                                        <p onclick="fixedMenu('category','brand')">+Add New</p>
                                         <ul>
-                                            <li>Demo</li>
-                                            <li>Demo</li>
-                                            <li>Demo</li>
-                                            <li>Demo</li>
+                                            <div class="item_value" id="item_value">
+                                                <li>Demo1</li>
+                                            <li>Demo2</li>
+                                            <li>Demo3</li>
+                                            <li>Demo4</li>
+                                            </div>
+
+                                            <li class="d-flex align-items-center justify-content-end button">
+                                                <button onclick="openOption('select')">Close</button>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
+                                
                             </ul>
                         <!-- </div> -->
                         <ul class="select_ul">
-                            <li style="position:relative"> <span onclick="openOption('select2')">Select</span>
+                            <li style="position:relative"> <span onclick="openOption('select2','select')">Select</span>
                                 <div class="select-option" id="select2">
                                     <input type="text" placeholder="Search">
-                                    <p>+Add New</p>
+                                    <p onclick="fixedMenu('category','brand')">+Add New</p>
                                     <ul>
+                                        <div class="item_value">
+                                            <li>Demo</li>
                                         <li>Demo</li>
                                         <li>Demo</li>
                                         <li>Demo</li>
-                                        <li>Demo</li>
+                                        </div>
+
+                                        <li class="d-flex align-items-center justify-content-end button">
+                                            <button onclick="openOption('select')">Close</button>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -422,18 +435,40 @@
         <div class="d-flex align-items-center justify-content-start">
             <i onclick="fixedMenu('','category')" class="fa fa-times pointer h5"></i>
         </div>
-        <div class="row">
-            
-            <div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Brand Name</p>
+        <div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: </label>
+            <input type="text" placeholder="Supplier Mobile No">
             </div>
-            <div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Brand Name</p>
-            </div><div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Brand Name</p>
+            <div class="single-input">
+                <label for="phn">SContact Person:</label>
+            <input type="text" placeholder="Contact Person:">
+            </div>
+            <div class="single-input">
+                <label for="phn">Country:</label>
+            <input type="text" placeholder="Country">
+            <div class="single-input">
+                <label for="phn">Supplier Name:</label>
+            <input type="text" placeholder="Supplier Name">
+            </div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
+            </div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
+            </div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
+            </div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
             </div>
         </div>
     </div>

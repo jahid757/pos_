@@ -627,3 +627,23 @@ button {
   padding: 10px;
   border-radius:7px;
 }
+
+.last_select ul li{
+  cursor: pointer;
+}
+.brand-list{
+  overflow-y: scroll;
+}
+.brand-list input{
+  width: 100%;
+  border: 1px solid #d1d5db;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.brand-list label{
+  font-size: 14px;
+  color: #7c3aed;
+  margin-bottom: 5px;
+}
