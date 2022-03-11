@@ -495,3 +495,10 @@ table tbody tr:nth-child(odd) {
   }
 }
 
+.left select{
+  width: 80%;
+  border: 1px solid #d1d5db;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+}
