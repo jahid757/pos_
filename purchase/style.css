@@ -237,7 +237,7 @@ table tbody tr:nth-child(odd) {
   margin-bottom: 20px;
 }
 .cs-input-group input {
-  width: 70%;
+  width: 70% !important;
   border-radius: 5px;
   outline: none;
   border: 1px solid #d1d5db;
@@ -422,7 +422,7 @@ table tbody tr:nth-child(odd) {
   margin-top: 5px;
   cursor: pointer;
 }
-#select.active,#select2.active{
+#select.active,#select2.active,#select3.active,#select4.active{
   display: block;
 }
 .popup2{
@@ -634,7 +634,7 @@ button {
 .brand-list{
   overflow-y: scroll;
 }
-.brand-list input{
+.brand-list.suplier input{
   width: 100%;
   border: 1px solid #d1d5db;
   outline: none;
@@ -644,6 +644,8 @@ button {
 }
 .brand-list label{
   font-size: 14px;
-  color: #7c3aed;
   margin-bottom: 5px;
+}
+.category_section .last_select .select_ul{
+  width:48%;
 }

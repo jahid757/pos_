@@ -129,27 +129,53 @@
                     </div>
                     <div class="transform mb-3">
                         
+                         <div class="category_section">
 
-                        <!-- <h4  onclick="fixedMenu('category','brand')">Brand</h4> -->
+                        <div class="d-flex justify-content-between align-items-center create_customer last_select">
+                            <ul class="select_ul">
+                                <li style="position:relative"> <span id="select_value3" onclick="openOption('select3','select4')">Select</span>
+                                    <div class="select-option" id="select3">
+                                        <input type="text" placeholder="Search">
+                                        <p onclick="fixedMenu('category','brand')">+Add New</p>
+                                        <ul>
+                                            <div class="item_value" id="item_value3">
+                                                <li>Demo1</li>
+                                            <li>Demo2</li>
+                                            <li>Demo3</li>
+                                            <li>Demo4</li>
+                                            </div>
 
-                        <div class="d-flex justify-content-between align-items-center">
-                            <select name="category" id="categoryDrop">
-                                <option value="">Select Category</option>
-                                <option value="demo">demo</option>
-                                <option value="demo">demo</option>
-                                <option value="demo">demo</option>
-                                <option value="demo">demo</option>
-                                <option value="demo">demo</option>
-                            </select>
-                            <select name="brand" id="brandDrop">
-                                <option value="">Select Brand</option>
-                                <option value="demo">demo</option>
-                                <option value="demo">demo</option>
-                                <option value="demo">demo</option>
-                                <option value="demo">demo</option>
-                                <option value="demo">demo</option>
-                            </select>
-                        </div>
+                                            <li class="d-flex align-items-center justify-content-end button">
+                                                <button onclick="openOption('select3','')">Close</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        <!-- </div> -->
+                        <ul class="select_ul">
+                            <li style="position:relative"> <span id="select_value4" onclick="openOption('select4','select3')">Select</span>
+                                <div class="select-option" id="select4">
+                                    <input type="text" placeholder="Search">
+                                    <p onclick="fixedMenu('category','brand')">+Add New</p>
+                                    <ul>
+                                        <div class="item_value" id="item_value4">
+                                            <li>Demo</li>
+                                        <li>Demo</li>
+                                        <li>Demo</li>
+                                        <li>Demo</li>
+                                        </div>
+
+                                        <li class="d-flex align-items-center justify-content-end button">
+                                            <button onclick="openOption('select4','')">Close</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
 
                     </div>
 
@@ -431,7 +457,7 @@
 
     <!-- category list -->
 
-    <div class="brand-list" id="category">
+    <div class="brand-list suplier" id="category">
         <div class="d-flex align-items-center justify-content-start">
             <i onclick="fixedMenu('','category')" class="fa fa-times pointer h5"></i>
         </div>
@@ -441,7 +467,7 @@
             <input type="text" placeholder="Supplier Mobile No">
             </div>
             <div class="single-input">
-                <label for="phn">SContact Person:</label>
+                <label for="phn">Contact Person:</label>
             <input type="text" placeholder="Contact Person:">
             </div>
             <div class="single-input">

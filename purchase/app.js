@@ -153,7 +153,9 @@ function openOption(id,id2) {
   const option = document.getElementById(id);
   const option2 = document.getElementById(id2);
   option.classList.toggle("active");
-  option2.classList.remove("active");
+  if(id2 !== ''){
+    option2.classList.remove("active");
+  }
 }
 
 // open purchase popup
@@ -369,4 +371,18 @@ function clearCache(){
 document.getElementById('item_value').addEventListener('click', (e) => {
   const value = e.target.textContent;
   document.getElementById('select_value').innerText = value;
+})
+document.getElementById('item_value2').addEventListener('click', (e) => {
+  const value = e.target.textContent;
+  document.getElementById('select_value2').innerText = value;
+})
+
+document.getElementById('item_value3').addEventListener('click', (e) => {
+  const value = e.target.textContent;
+  document.getElementById('select_value3').innerText = value;
+})
+
+document.getElementById('item_value4').addEventListener('click', (e) => {
+  const value = e.target.textContent;
+  document.getElementById('select_value4').innerText = value;
 })
