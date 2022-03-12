@@ -8,11 +8,11 @@ img {
 h6 {
   font-size: 0.813rem;
 }
-ul,li{
+ul,
+li {
   list-style: none;
   padding: 0;
   margin: 0;
-
 }
 .logo img {
   width: 60px;
@@ -314,9 +314,9 @@ table tbody tr:nth-child(odd) {
   border: none;
   border-radius: 5px;
 }
-.fixed-menu-left{
+.fixed-menu-left {
   max-width: 300px;
-  width:300px;
+  width: 300px;
   position: fixed;
   top: 0;
   left: -500px;
@@ -328,7 +328,7 @@ table tbody tr:nth-child(odd) {
   overflow-y: scroll;
   transition: all 0.5s;
 }
-.fixed-menu-left ul li a{
+.fixed-menu-left ul li a {
   display: block;
   margin-bottom: 10px;
   text-decoration: none;
@@ -337,10 +337,10 @@ table tbody tr:nth-child(odd) {
   font-size: 18px;
   color: #999;
 }
-.fixed-menu-left.fixed-menu{
+.fixed-menu-left.fixed-menu {
   left: 0;
 }
-.brand-list{
+.brand-list {
   position: fixed;
   top: 0;
   right: -500px;
@@ -354,19 +354,19 @@ table tbody tr:nth-child(odd) {
   width: 400px;
   max-width: 400px;
 }
-#brand.fixed-menu{
+#brand.fixed-menu {
   right: 0;
 }
-#category.fixed-menu{
+#category.fixed-menu {
   right: 0;
 }
-#display.fixed-menu{
+#display.fixed-menu {
   top: 170px;
 }
 
-.display{
-  width:200px;
-  max-width:200px;
+.display {
+  width: 200px;
+  max-width: 200px;
   position: absolute;
   top: -500px;
   /* left: 50%; */
@@ -381,34 +381,34 @@ table tbody tr:nth-child(odd) {
   font-weight: bold;
   transition: all 0.5s;
 }
-.display p{
+.display p {
   padding: 10px;
   margin-bottom: 0;
 }
-.display p:hover{
+.display p:hover {
   background: #7c3aed;
   cursor: pointer;
 }
-.select_ul{
+.select_ul {
   width: 100%;
 }
-.select_ul li{
+.select_ul li {
   margin-bottom: 10px;
   border-bottom: 1px solid #d1d5db;
   font-size: 18px;
   display: block;
   border-radius: 5px 5px 0 0;
 }
-.select_ul li span{
+.select_ul li span {
   border: 1px solid #7c3aed;
   width: 100%;
   display: block;
   padding: 5px;
   border-radius: 5px 5px 0 0;
 }
-.select_ul li .select-option{
+.select_ul li .select-option {
   padding: 10px;
-  border-radius:  0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
   border: 1px solid #d1d5db;
   border-top: none;
   position: absolute;
@@ -417,19 +417,22 @@ table tbody tr:nth-child(odd) {
   z-index: 99999;
   display: none;
 }
-.select_ul li .select-option p{
+.select_ul li .select-option p {
   color: #7c3aed;
   margin-top: 5px;
   cursor: pointer;
 }
-#select.active,#select2.active,#select3.active,#select4.active{
+#select.active,
+#select2.active,
+#select3.active,
+#select4.active {
   display: block;
 }
-.popup2{
+.popup2 {
   width: 350px;
   max-width: 350px;
   position: fixed;
-  top:50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
@@ -438,13 +441,13 @@ table tbody tr:nth-child(odd) {
   border-radius: 5px;
   display: none;
 }
-.popup2 .qt{
+.popup2 .qt {
   width: 100%;
 }
-.popup2.active{
+.popup2.active {
   display: block;
 }
-.popup2 button{
+.popup2 button {
   background: #7c3aed;
   color: #fff;
   padding: 5px;
@@ -452,46 +455,46 @@ table tbody tr:nth-child(odd) {
   border-radius: 5px;
   outline: none;
 }
-.button button{
+.button button {
   border-radius: 5px;
   padding: 5px 15px;
-  border: 1px solid #8950FC;
+  border: 1px solid #8950fc;
   outline: none;
   color: #7c3aed;
 }
-.button button:nth-child(1){
+.button button:nth-child(1) {
   background: #7c3aed;
   color: #fff;
   border-radius: 5px;
 }
-.item .col-3{
+.item .col-3 {
   width: 20%;
 }
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
   .payment {
     position: inherit;
     bottom: 0;
     width: 100%;
   }
-  table.table{
-    width:760px;
+  table.table {
+    width: 760px;
   }
 }
 
-@media (max-width: 575px){
-  .item .col-3{
+@media (max-width: 575px) {
+  .item .col-3 {
     width: 33%;
   }
 }
 
-@media (max-width: 350px){
-  .item .col-3{
+@media (max-width: 350px) {
+  .item .col-3 {
     width: 50%;
   }
 }
 
-.left select{
+.left select {
   width: 80%;
   border: 1px solid #d1d5db;
   outline: none;
@@ -504,31 +507,27 @@ table tbody tr:nth-child(odd) {
   display: block;
 } */
 
-
-
 .container {
   width: 100%;
 }
 .result {
   width: 59.1%;
 }
- .calc_wrapper input {
+.calc_wrapper input {
   padding: 25px;
   color: rgb(17, 17, 17);
   font-size: 20px;
   cursor: pointer;
   width: 24%;
-  background-color:  #fff;
-  box-shadow: 2px 2px 5px #babecc,
-              -5px -5px 10px #ffffff73;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px #babecc, -5px -5px 10px #ffffff73;
   border: none;
   outline: none;
   border-radius: 5px;
 }
 
 .calc_wrapper .first-row input.result {
-  box-shadow: inset 2px 2px 5px #babecc,
-              inset -5px -5px 10px #ffffff73;
+  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
 }
 
 .first-row,
@@ -566,26 +565,25 @@ button {
   font-weight: 600;
 }
 
-
 .bottom-buttons {
   display: flex;
   margin-left: -2.3px;
 }
-.calc_wrapper{
+.calc_wrapper {
   box-sizing: border-box;
   /* box-shadow: 0 4px 20px 1px rgb(0 0 0 / 32%); */
   padding: 10px;
   border-radius: 5px;
 }
-.item .col-3{
+.item .col-3 {
   text-align: center;
 }
-.item .col-3 img{
+.item .col-3 img {
   width: 120px;
   display: block;
   margin: 0 auto;
 }
-.alert{
+.alert {
   background: rgb(77 181 77 / 81%);
   border-radius: 5px;
   padding: 10px;
@@ -597,7 +595,7 @@ button {
   color: #fff;
   opacity: 0;
 }
-.alert.active{
+.alert.active {
   animation: alert 3s alternate;
 }
 
@@ -619,23 +617,23 @@ button {
 
 .calculator {
   position: fixed;
-  top:20%;
+  top: 20%;
   right: 10px;
   font-size: 30px;
   background-color: #7c3aed;
   color: #fff;
   padding: 10px;
-  border-radius:7px;
+  border-radius: 7px;
   z-index: 999;
 }
 
-.last_select ul li{
+.last_select ul li {
   cursor: pointer;
 }
-.brand-list{
+.brand-list {
   overflow-y: scroll;
 }
-.brand-list.suplier input{
+.brand-list.suplier input {
   width: 100%;
   border: 1px solid #d1d5db;
   outline: none;
@@ -643,14 +641,14 @@ button {
   padding: 10px;
   margin-bottom: 10px;
 }
-.brand-list label{
+.brand-list label {
   font-size: 14px;
   margin-bottom: 5px;
 }
-.category_section .last_select .select_ul{
-  width:48%;
+.category_section .last_select .select_ul {
+  width: 48%;
 }
-.clear_data_warning{
+.clear_data_warning {
   background: #fff;
   border: 1px solid #f57878;
   padding: 10px;
@@ -661,11 +659,9 @@ button {
   transform: translate(-50%, -50%);
   display: none;
 }
-.clear_data_warning.active{
-  display: block;
-}
-.clear_data_warning i{
-  font-size:50px;
+
+.clear_data_warning i {
+  font-size: 50px;
   font-weight: bold;
-  color:red;
+  color: red;
 }

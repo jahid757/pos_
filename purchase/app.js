@@ -9,7 +9,6 @@ if (storage === null && batchStorage === null) {
   localStorage.setItem("batchStorage", JSON.stringify([]));
 }
 
-
 // show item
 
 function showItem() {
@@ -46,8 +45,8 @@ function resetData() {
   localStorage.setItem("posItemDataPurchase", JSON.stringify([]));
   showItem();
   grandTotal();
-  alertMessage()
-  popUp(false,'clear_data_warning')
+  alertMessage();
+  popUp(false, "clear_data_warning");
 }
 
 // item qt update
@@ -101,7 +100,7 @@ function grandTotal() {
 }
 grandTotal();
 
-function popUp(ind,id) {
+function popUp(ind, id) {
   const modal = document.getElementById(id);
   if (ind === true) {
     modal.style.display = "block";
@@ -130,53 +129,49 @@ function fixedMenu(id, id2) {
   }
 }
 
-
 // paid amount
 function paidAmount() {
   const total = document.getElementById("subTotal").value;
   const paid = document.getElementById("paid").value;
   const change = paid - total;
-  if(paid == 0){
+  if (paid == 0) {
     document.getElementById("change").value = `Pay Now`;
-  }else{
+  } else {
     document.getElementById("change").value = `${change} Change`;
   }
 }
 paidAmount();
 
 // display resolution
-function displayResolution(width,height) {
+function displayResolution(width, height) {
   window.innerHeight = height;
   window.innerWidth = width;
 }
 // open select option
 
-function openOption(id,id2) {
+function openOption(id, id2) {
   const option = document.getElementById(id);
   const option2 = document.getElementById(id2);
   option.classList.toggle("active");
-  if(id2 !== ''){
+  if (id2 !== "") {
     option2.classList.remove("active");
   }
 }
 
 // open purchase popup
 
-
-
-
 // added to json
 
 function addToJson() {
-  const batchId = inputValue('batch');
-  const qty = inputValue('qyt');
-  const totalPrice = inputValue('tPrice');
-  const fee = inputValue('free');
-  const price = inputValue('price');
-  const basic = inputValue('basic');
-  const dis = inputValue('discount');
-  const tax = inputValue('tax');
-  const amount = inputValue('amount');
+  const batchId = inputValue("batch");
+  const qty = inputValue("qyt");
+  const totalPrice = inputValue("tPrice");
+  const fee = inputValue("free");
+  const price = inputValue("price");
+  const basic = inputValue("basic");
+  const dis = inputValue("discount");
+  const tax = inputValue("tax");
+  const amount = inputValue("amount");
 
   const item = localStorage.getItem("posItemDataPurchase");
   const itemData = JSON.parse(item);
@@ -194,10 +189,10 @@ function addToJson() {
           dis: dis,
           tax: tax,
           amount: amount,
-        }
+        },
       ])
     );
-  }else{
+  } else {
     window.localStorage.setItem(
       "posItemDataPurchase",
       JSON.stringify([
@@ -211,23 +206,20 @@ function addToJson() {
           dis: dis,
           tax: tax,
           amount: amount,
-        }, ...itemData,
+        },
+        ...itemData,
       ])
     );
   }
   showItem();
-  popUp(false,'modal2');
-  alertMessage()
+  popUp(false, "modal2");
+  alertMessage();
 }
 
-const inputValue = (id) =>{
+const inputValue = (id) => {
   const input = document.getElementById(id);
   return input.value;
-}
-
-
-
-
+};
 
 //adding event handler on the document to handle keyboard inputs
 document.addEventListener("keydown", keyboardInputHandler);
@@ -308,25 +300,23 @@ function liveScreen(value) {
 // alert message
 
 function alertMessage() {
-  const alert = document.getElementById('alert');
-  alert.classList.add('active');
+  const alert = document.getElementById("alert");
+  alert.classList.add("active");
 
   setTimeout(() => {
-    alert.classList.remove('active');
-  } , 3000);
-  
+    alert.classList.remove("active");
+  }, 3000);
 }
 
 // add new batch
-function newBatchId(){
-  const batch = inputValue('batch');
-  const discount = inputValue('batchDiscount');
-  const mrp = inputValue('mrp');
-  const retail = inputValue('retail');
-  const menuFactureDate = inputValue('manufactureDate');
-  const expiryDate = inputValue('expiryDate');
+function newBatchId() {
+  const batch = inputValue("batch");
+  const discount = inputValue("batchDiscount");
+  const mrp = inputValue("mrp");
+  const retail = inputValue("retail");
+  const menuFactureDate = inputValue("manufactureDate");
+  const expiryDate = inputValue("expiryDate");
 
-  
   const item = localStorage.getItem("batchStorage");
   const itemData = JSON.parse(item);
   if (itemData.length === 0) {
@@ -340,10 +330,10 @@ function newBatchId(){
           retail: retail,
           menuFactureDate: menuFactureDate,
           expiryDate: expiryDate,
-        }
+        },
       ])
     );
-  }else{
+  } else {
     window.localStorage.setItem(
       "batchStorage",
       JSON.stringify([
@@ -354,15 +344,15 @@ function newBatchId(){
           retail: retail,
           menuFactureDate: menuFactureDate,
           expiryDate: expiryDate,
-        }, ...itemData,
+        },
+        ...itemData,
       ])
     );
   }
-
 }
 
-function clearCache(){
-  alertMessage()
+function clearCache() {
+  alertMessage();
   setTimeout(() => {
     window.location.reload();
   }, 1000);
@@ -370,21 +360,21 @@ function clearCache(){
 
 // select option
 
-document.getElementById('item_value').addEventListener('click', (e) => {
+document.getElementById("item_value").addEventListener("click", (e) => {
   const value = e.target.textContent;
-  document.getElementById('select_value').innerText = value;
-})
-document.getElementById('item_value2').addEventListener('click', (e) => {
+  document.getElementById("select_value").innerText = value;
+});
+document.getElementById("item_value2").addEventListener("click", (e) => {
   const value = e.target.textContent;
-  document.getElementById('select_value2').innerText = value;
-})
+  document.getElementById("select_value2").innerText = value;
+});
 
-document.getElementById('item_value3').addEventListener('click', (e) => {
+document.getElementById("item_value3").addEventListener("click", (e) => {
   const value = e.target.textContent;
-  document.getElementById('select_value3').innerText = value;
-})
+  document.getElementById("select_value3").innerText = value;
+});
 
-document.getElementById('item_value4').addEventListener('click', (e) => {
+document.getElementById("item_value4").addEventListener("click", (e) => {
   const value = e.target.textContent;
-  document.getElementById('select_value4').innerText = value;
-})
+  document.getElementById("select_value4").innerText = value;
+});
