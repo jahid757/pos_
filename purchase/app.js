@@ -46,6 +46,8 @@ function resetData() {
   localStorage.setItem("posItemDataPurchase", JSON.stringify([]));
   showItem();
   grandTotal();
+  alertMessage()
+  popUp(false,'clear_data_warning')
 }
 
 // item qt update

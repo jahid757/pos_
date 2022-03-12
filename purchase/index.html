@@ -110,7 +110,7 @@
                 <div class="payment px-3">
                     <h3 class="grand_total"> Grand Total <span id="grand-total"></span> <span>$</span></h3>
                     <div class="d-flex align-items-center justify-content-around pos-btn mb-3">
-                        <button onclick="resetData()" class="danger"><i class="fa fa-power-off me-1"></i>Reset</button>
+                        <button onclick="popUp(true,'clear_data_warning')" class="danger"><i class="fa fa-power-off me-1"></i>Reset</button>
                         <button onclick="popUp(true,'modal')" class="primary"><i class="fa fa-dollar-sign me-1"></i>Pay Now</button>
                     </div>
                 </div>
@@ -637,7 +637,16 @@
         <i onclick="fixedMenu('brand','category')" class="fa fa-calculator"></i>
     </div>
 
-
+    <!-- clear data warning -->
+    <div class="clear_data_warning" id="clear_data_warning">
+        <div class="text-center">
+            <i class="fa fa-exclamation-triangle mb-3"></i>
+            <p class="mb-3">Are you sure you want to clear all data ?</p>
+        </div>
+        <div class="button d-flex align-items-center justify-content-between">
+            <button onclick="resetData()">Yes</button>
+            <button onclick="popUp(false,'clear_data_warning')">No</button>
+        </div>
 
 
 

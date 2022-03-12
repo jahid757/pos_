@@ -626,6 +626,7 @@ button {
   color: #fff;
   padding: 10px;
   border-radius:7px;
+  z-index: 999;
 }
 
 .last_select ul li{
@@ -648,4 +649,23 @@ button {
 }
 .category_section .last_select .select_ul{
   width:48%;
+}
+.clear_data_warning{
+  background: #fff;
+  border: 1px solid #f57878;
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* display: none; */
+}
+.clear_data_warning.active{
+  display: block;
+}
+.clear_data_warning i{
+  font-size:50px;
+  font-weight: bold;
+  color:red;
 }
