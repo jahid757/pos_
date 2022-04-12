@@ -178,7 +178,7 @@
                     </div>
 
                     <div class="item">
-                        <div class="row">
+                        <div class="row align-items-center justify-content-center">
 
                             <div class="col-3 mb-3">
                                 <div onclick="popUp(true,'modal2')" class="card pointer">
@@ -257,6 +257,8 @@
                                   </div>
                             </div>
 
+
+                            </div>
                                 <div class="pagination">
                                     <a href="#"><i class="fa fa-angle-left"></i></a>
                                     <a class="active" href="#">1</a>
@@ -264,8 +266,6 @@
                                     <a class="" href="#">3</a>
                                     <a href="#"><i class="fa fa-angle-right"></i></a>
                                 </div>
-
-                            </div>
 
                         </div>
                     </div>
@@ -420,35 +420,37 @@
         <div class="calc_wrapper">
             <div class="">
               <h1>Calculator</h1>
-              <div class="first-row">
-                <input type="text" name="result" class="result calc" id="result" value="" placeholder="Result" readonly />
+              <!-- <div class="first-row"> -->
+                <div class="w-100">
+                    <input type="text" name="result" class="result calc w-100" id="result" value="" placeholder="Result" readonly />
+                </div>
                 <input type="button" value="C" onclick="clearScreen()" id="clear" />
-              </div>
-              <div class="second-row">
+              <!-- </div> -->
+              <!-- <div class="second-row"> -->
                 <input type="button" value="1" onclick="liveScreen(1)" id="one" />
                 <input type="button" value="2" onclick="liveScreen(2)" id="two" />
                 <input type="button" value="3" id="three" onclick="liveScreen(3)" />
                 <input type="button" value="+" onclick="liveScreen('+')" />
-              </div>
-              <div class="third-row">
+              <!-- </div> -->
+              <!-- <div class="third-row"> -->
                 <input type="button" value="4" id="four" onclick="liveScreen(4)" />
                 <input type="button" value="5" id="five" onclick="liveScreen(5)" />
                 <input type="button" value="6" id="six" onclick="liveScreen(6)" />
                 <input type="button" value="-" onclick="liveScreen('-')" />
-              </div>
-              <div class="fourth-row">
+              <!-- </div> -->
+              <!-- <div class="fourth-row"> -->
                 <input type="button" value="7" id="seven" onclick="liveScreen(7)" />
                 <input type="button" value="8" id="eight" onclick="liveScreen(8)" />
                 <input type="button" value="9" id="nine" onclick="liveScreen(9)" />
                 <input type="button" value="x" onclick="liveScreen('*')" />
-              </div>
-              <div class="fifth-row">
+              <!-- </div> -->
+              <!-- <div class="fifth-row"> -->
                 <input type="button" value="/" onclick="liveScreen('/')" />
         
                 <input type="button" value="0" id="zero" onclick="liveScreen(0)" />
                 <input type="button" value="." class="dot" onclick="liveScreen('.')" />
                 <input type="button" value="=" onclick="result.value = eval(result.value||null)" />
-              </div>
+              <!-- </div> -->
             </div>
           </div>
     </div>
@@ -510,11 +512,12 @@
 
     <div class="popup_container" id="modal2">
         <div class="container">
-            <div class="row">
-                <div class="d-flex justify-content-between align-items-center pt-2 pb-2 pl-4 pr-4">
+            <div class="d-flex justify-content-between align-items-center pt-2 pb-2 pl-4 pr-4">
                     <h4>Add Details</h4>
                     <i onclick="popUp(false,'modal2')" class="fa pointer fa-times"></i>
                 </div>
+            <div class="row">
+                
                 <div class="col-md-6">
                     <div class="right">
                         

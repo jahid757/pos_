@@ -524,6 +524,7 @@ table tbody tr:nth-child(odd) {
   border: none;
   outline: none;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .calc_wrapper .first-row input.result {
@@ -664,4 +665,39 @@ button {
   font-size: 50px;
   font-weight: bold;
   color: red;
+}
+
+@media (max-width:768px){
+  .payment{
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #fff;
+  }
+  .item{
+    margin-bottom: 140px;
+  }
+  .item .col-3{
+    width: 33%;
+    max-width:33%
+  }
+}
+@media (max-width:500px){
+  .item .col-3{
+    width: 50%;
+    max-width:50%
+  }
+  .brand-list{
+    width: 100%;
+    max-width: 100%;
+  }
+  .calc_wrapper input{
+    width:32%
+  }
+}
+@media (max-width:330px){
+  .item .col-3{
+    width: 98%;
+    max-width:98%
+  }
 }
