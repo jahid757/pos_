@@ -141,11 +141,7 @@ table tbody tr:nth-child(odd) {
 .pos-btn button.primary {
   background: #8b5cf6;
 }
-@media (max-width: 768px) {
-  .card_left {
-    position: inherit;
-  }
-}
+
 
 /* right side */
 
@@ -677,6 +673,9 @@ button {
     bottom: 0;
     z-index: 1000;
     background-color: #fff;
+  }
+  .card_left {
+    position: inherit;
   }
   .item{
     margin-bottom: 140px;
