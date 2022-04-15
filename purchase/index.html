@@ -311,7 +311,7 @@
 
                         <div class="cs-input-group">
                             <label for="paid">Paid</label>
-                            <div style="width:70%">
+                            <div class="fixed_amount" style="width:70%">
                                 <input oninput="paidAmount()" id="paid" placeholder="Paid" value="0" style="width:100%;margin:0 0 10px 0;" type="text" name="paid" id="paid">
                                 <div class="taka_fixed">
                                     <span onclick="fixedAmount(100)">100</span>
@@ -340,7 +340,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="left">
+                    <div class="left left_pay">
                         <div class="cs-input-group mb-5">
                             <label for="total"><h4>Total</h4></label>
                             <div style="width:70%">
@@ -365,15 +365,15 @@
                         </div>
                         <div class="three-input-layout">
                             <div class="cs-input-group">
-                                <div class="left-side">
+                                <div class="left-side w-500">
                                     <label for="cheque">Cheque No</label>
                                 <input placeholder="Cheque No" type="text" name="cheque" id="cheque">
                                 </div>
-                                <div class="middle-side">
+                                <div class="middle-side w-500">
                                     <label for="bank">Bank Name</label>
                                 <input placeholder="Bank Name" type="text" name="bank" id="bank">
                                 </div>
-                                <div class="right-side">
+                                <div class="right-side w-500">
                                     <label for="chequeDate">Cheque Date</label>
                                     <input placeholder="Cheque Date" type="text" name="chequeDate" id="chequeDate">
                                 </div>
@@ -383,7 +383,7 @@
                             <textarea placeholder="Note" name="note" id="note" cols="30" rows="10"></textarea>
                         </div>
                         <div class="d-flex align-items-center justify-content-end">
-                            <button class="close" onclick="popUp(false,'modal')">Close</button>
+                            <button class="btn_close" onclick="popUp(false,'modal')">Close</button>
                         </div>
                     </div>
                 </div>

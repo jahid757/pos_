@@ -252,6 +252,7 @@ table tbody tr:nth-child(odd) {
   display: inline-block;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 .cs-input-group input[type="button"]:nth-child(2) {
   background-color: rgb(137, 4, 214);
@@ -265,7 +266,10 @@ table tbody tr:nth-child(odd) {
   padding: 10px;
 }
 .consider_box input {
-  width: 20px;
+  width: 20px !important;
+}
+.consider_box label {
+  margin-bottom: 0;
 }
 .two-input-layout .left-side {
   width: 33%;
@@ -681,6 +685,13 @@ button {
     width: 33%;
     max-width:33%
   }
+  .btn_close{
+    bottom: 0px;
+    right: 0px;
+  }
+  .left_pay{
+    margin-bottom: 60px;
+  }
 }
 @media (max-width:500px){
   .item .col-3{
@@ -694,10 +705,43 @@ button {
   .calc_wrapper input{
     width:32%
   }
+  .consider_box label{
+    font-size: 13px;
+  }
+  .three-input-layout .cs-input-group{
+    display: block;
+  }
+  .three-input-layout .cs-input-group .w-500{
+    width: 49%;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .three-input-layout .cs-input-group input,.two-input-layout .right-side input,.two-input-layout .left-side input{
+    width: 100% !important;
+  }
+  .two-input-layout .right-side,.two-input-layout .left-side{
+    width: 49%;
+  }
+  label{
+    font-size: 13px;
+  }
+  .fixed_amount{
+
+  }
+  
 }
 @media (max-width:330px){
   .item .col-3{
     width: 98%;
     max-width:98%
   }
+}
+.btn_close{
+  background: #ef4444;
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+  outline: none !important;
+  padding: 10px 20px;
+  border: none;
 }
