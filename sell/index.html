@@ -7,14 +7,14 @@
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
     <script src="https://kit.fontawesome.com/4b5d72e539.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Pos || Home</title>
 </head>
 <body id="body">
-    <div class="container-fluid ps-0 ms-0">
+    <div class="container-fluid pl-0 ml-0">
         <div class="row">
             <div class="col-md-5">
                 <div class="card_left">
@@ -25,8 +25,6 @@
                         <i onclick="fixedMenu('menu_left','')" class="fa fa-bars"></i>
                     </div>
                     <div class="d-flex align-items-center">
-                        <i onclick="fixedMenu('display','')" class="pointer fa fa-globe me-2"></i>
-                         <!-- display ratio -->
 
                         <div class="display" id="display">
                             <div class="d-flex align-items-center justify-content-end">
@@ -37,50 +35,46 @@
                             <p onclick="displayResolution(1536,864)">1536×864</p>
                             <p onclick="displayResolution(414,896)">414×896</p>
                         </div>
-                        <button class="btn-warn">Clear Cache</button>
+                        <button class="btn-warn" onclick="clearCache()">Clear Cache</button>
                     </div>
                 </div>
 
                 <div class="p-3">
                     <div class="create_customer last_select">
-                        <!-- <div class="d-flex align-items-center mb-2"> -->
-                            <!-- <select class="active" name="">
-                                <option value="demo" selected> Select</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                                <option value="demo">Demo</option>
-                            </select>
-                            <i class="fa pointer fa-user-plus"></i> -->
                             <ul class="select_ul">
-                                <li style="position:relative"> <span onclick="openOption('select')">Select</span>
+                                <li style="position:relative"> <span id="select_value" onclick="openOption('select','select2')">Select</span>
                                     <div class="select-option" id="select">
                                         <input type="text" placeholder="Search">
-                                        <p>+Add New</p>
+                                        <p onclick="fixedMenu('category','brand')">+Add New</p>
                                         <ul>
-                                            <li>Demo</li>
-                                            <li>Demo</li>
-                                            <li>Demo</li>
-                                            <li>Demo</li>
+                                            <div class="item_value" id="item_value">
+                                                <li>Demo1</li>
+                                                <li>John</li>
+                                            </div>
+
+                                            <li class="d-flex align-items-center justify-content-end button">
+                                                <button onclick="openOption('select')">Close</button>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
+                                
                             </ul>
                         <!-- </div> -->
                         <ul class="select_ul">
-                            <li style="position:relative"> <span onclick="openOption('select2')">Select</span>
+                            <li style="position:relative"> <span id="select_value2" onclick="openOption('select2','select')">Select</span>
                                 <div class="select-option" id="select2">
                                     <input type="text" placeholder="Search">
-                                    <p>+Add New</p>
+                                    <p onclick="fixedMenu('category','brand')">+Add New</p>
                                     <ul>
-                                        <li>Demo</li>
-                                        <li>Demo</li>
-                                        <li>Demo</li>
-                                        <li>Demo</li>
+                                        <div class="item_value" id="item_value2">
+                                            <li>Demo</li>
+                                            <li>John</li>
+                                        </div>
+
+                                        <li class="d-flex align-items-center justify-content-end button">
+                                            <button onclick="openOption('select')">Close</button>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -92,21 +86,26 @@
                     <table class="table">
                         <thead style="border-bottom: 2px solid transparent;">
                             <tr>
-                                <th>Product</th>
+                                <th>Batch Id:</th>
+                                <th>Qty: </th>
+                                <th>Total Price:</th>
+                                <th>Fee</th>
                                 <th>Price</th>
-                                <th>Qyt</th>
-                                <th>Subtotal</th>
+                                <th>Basic</th>
+                                <th>Dis</th>
+                                <th>Tax</th>
+                                <th>Amount</th>
                             </tr>
                         </thead>
                         <tbody id="item-list"></tbody>
                     </table>
                 </div>
 
-                <div class="payment px-3">
+                <div class="payment pr-3 pl-3">
                     <h3 class="grand_total"> Grand Total <span id="grand-total"></span> <span>$</span></h3>
                     <div class="d-flex align-items-center justify-content-around pos-btn mb-3">
-                        <button onclick="resetData()" class="danger"><i class="fa fa-power-off me-1"></i>Reset</button>
-                        <button onclick="popUp(true)" class="primary"><i class="fa fa-dollar-sign me-1"></i>Pay Now</button>
+                        <button onclick="popUp(true,'clear_data_warning')" class="danger"><i class="fa fa-power-off mr1"></i>Reset</button>
+                        <button onclick="popUp(true,'modal')" class="primary"><i class="fa fa-dollar-sign mr1"></i>Pay Now</button>
                     </div>
                 </div>
                   
@@ -117,16 +116,64 @@
             <div class="col-md-7">
                 <div class="card_right p-3">
                     <h6 class="mb-2">Product</h6>
+                    
 
                     <div class="search mb-3">
                         <input type="text" class="input" placeholder="Search">
                     </div>
+                    <div class="transform mb-3">
+                        
+                         <div class="category_section">
+
+                        <div class="d-flex justify-content-between align-items-center create_customer last_select">
+                            <ul class="select_ul">
+                                <li style="position:relative"> <span id="select_value3" onclick="openOption('select3','select4')">Select</span>
+                                    <div class="select-option" id="select3">
+                                        <input type="text" placeholder="Search">
+                                        <p onclick="fixedMenu('category','brand')">+Add New</p>
+                                        <ul>
+                                            <div class="item_value" id="item_value3">
+                                                <li>Demo1</li>
+                                            <li>John</li>
+                                            </div>
+
+                                            <li class="d-flex align-items-center justify-content-end button">
+                                                <button onclick="openOption('select3','')">Close</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        <!-- </div> -->
+                        <ul class="select_ul">
+                            <li style="position:relative"> <span id="select_value4" onclick="openOption('select4','select3')">Select</span>
+                                <div class="select-option" id="select4">
+                                    <input type="text" placeholder="Search">
+                                    <p onclick="fixedMenu('category','brand')">+Add New</p>
+                                    <ul>
+                                        <div class="item_value" id="item_value4">
+                                            <li>Demo</li>
+                                        <li>John</li>
+                                        </div>
+
+                                        <li class="d-flex align-items-center justify-content-end button">
+                                            <button onclick="openOption('select4','')">Close</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+
+                    </div>
 
                     <div class="item">
-                        <div class="row">
+                        <div class="row align-items-center justify-content-center">
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',19130839,10.00)" class="card pointer">
+                                <div onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -137,7 +184,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',19320840,10.00)" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -148,7 +195,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',93102839,10.00)" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -159,7 +206,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',19108329,10.00)" onclick="addItem('Avocet',1930839,10.00)" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')"  class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -170,7 +217,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',21938392,10.34)" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -181,7 +228,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',21930289,10.70)" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -192,7 +239,7 @@
                             </div>
 
                             <div class="col-3 mb-3">
-                                <div onclick="addItem('Avocet',21930283,10.00)" class="card pointer">
+                                <div  onclick="popUp(true,'modal2')" class="card pointer">
                                     <img src="./images/Avocat.jpg" class="card-img-top" alt="Avocet">
                                     <div class="card-body">
                                       <p class="card-text mb-0">Avocet</p>
@@ -202,6 +249,8 @@
                                   </div>
                             </div>
 
+
+                            </div>
                                 <div class="pagination">
                                     <a href="#"><i class="fa fa-angle-left"></i></a>
                                     <a class="active" href="#">1</a>
@@ -210,23 +259,11 @@
                                     <a href="#"><i class="fa fa-angle-right"></i></a>
                                 </div>
 
-                            </div>
-
                         </div>
                     </div>
 
 
-                    <div class="transform">
-                        
-                        <div class="category">
-                            <h4 onclick="fixedMenu('brand','category')">Category</h4>
-                        </div>
-
-                        <div class="brand">
-                            <h4  onclick="fixedMenu('category','brand')">Brand</h4>
-                        </div>
-
-                    </div>
+                    
 
 
 
@@ -266,7 +303,7 @@
 
                         <div class="cs-input-group">
                             <label for="paid">Paid</label>
-                            <div style="width:70%">
+                            <div class="fixed_amount" style="width:70%">
                                 <input oninput="paidAmount()" id="paid" placeholder="Paid" value="0" style="width:100%;margin:0 0 10px 0;" type="text" name="paid" id="paid">
                                 <div class="taka_fixed">
                                     <span onclick="fixedAmount(100)">100</span>
@@ -295,7 +332,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="left">
+                    <div class="left left_pay">
                         <div class="cs-input-group mb-5">
                             <label for="total"><h4>Total</h4></label>
                             <div style="width:70%">
@@ -320,15 +357,15 @@
                         </div>
                         <div class="three-input-layout">
                             <div class="cs-input-group">
-                                <div class="left-side">
+                                <div class="left-side w-500">
                                     <label for="cheque">Cheque No</label>
                                 <input placeholder="Cheque No" type="text" name="cheque" id="cheque">
                                 </div>
-                                <div class="middle-side">
+                                <div class="middle-side w-500">
                                     <label for="bank">Bank Name</label>
                                 <input placeholder="Bank Name" type="text" name="bank" id="bank">
                                 </div>
-                                <div class="right-side">
+                                <div class="right-side w-500">
                                     <label for="chequeDate">Cheque Date</label>
                                     <input placeholder="Cheque Date" type="text" name="chequeDate" id="chequeDate">
                                 </div>
@@ -338,7 +375,7 @@
                             <textarea placeholder="Note" name="note" id="note" cols="30" rows="10"></textarea>
                         </div>
                         <div class="d-flex align-items-center justify-content-end">
-                            <button class="close" onclick="popUp(false)">Close</button>
+                            <button class="btn_close" onclick="popUp(false,'modal')">Close</button>
                         </div>
                     </div>
                 </div>
@@ -372,49 +409,244 @@
         <div class="d-flex align-items-center justify-content-start">
             <i onclick="fixedMenu('','brand')" class="fa fa-times pointer h5"></i>
         </div>
-        <div class="row">
-            <div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Category Name</p>
+        <div class="calc_wrapper">
+            <div class="">
+              <h1>Calculator</h1>
+              <!-- <div class="first-row"> -->
+                <div class="w-100">
+                    <input type="text" name="result" class="result calc w-100" id="result" value="" placeholder="Result" readonly />
+                </div>
+                <input type="button" value="C" onclick="clearScreen()" id="clear" />
+              <!-- </div> -->
+              <!-- <div class="second-row"> -->
+                <input type="button" value="1" onclick="liveScreen(1)" id="one" />
+                <input type="button" value="2" onclick="liveScreen(2)" id="two" />
+                <input type="button" value="3" id="three" onclick="liveScreen(3)" />
+                <input type="button" value="+" onclick="liveScreen('+')" />
+              <!-- </div> -->
+              <!-- <div class="third-row"> -->
+                <input type="button" value="4" id="four" onclick="liveScreen(4)" />
+                <input type="button" value="5" id="five" onclick="liveScreen(5)" />
+                <input type="button" value="6" id="six" onclick="liveScreen(6)" />
+                <input type="button" value="-" onclick="liveScreen('-')" />
+              <!-- </div> -->
+              <!-- <div class="fourth-row"> -->
+                <input type="button" value="7" id="seven" onclick="liveScreen(7)" />
+                <input type="button" value="8" id="eight" onclick="liveScreen(8)" />
+                <input type="button" value="9" id="nine" onclick="liveScreen(9)" />
+                <input type="button" value="x" onclick="liveScreen('*')" />
+              <!-- </div> -->
+              <!-- <div class="fifth-row"> -->
+                <input type="button" value="/" onclick="liveScreen('/')" />
+        
+                <input type="button" value="0" id="zero" onclick="liveScreen(0)" />
+                <input type="button" value="." class="dot" onclick="liveScreen('.')" />
+                <input type="button" value="=" onclick="result.value = eval(result.value||null)" />
+              <!-- </div> -->
             </div>
-            <div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Category Name</p>
-            </div><div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Category Name</p>
-            </div>
-        </div>
+          </div>
     </div>
 
     <!-- category list -->
 
-    <div class="brand-list" id="category">
+    <div class="brand-list suplier" id="category">
         <div class="d-flex align-items-center justify-content-start">
             <i onclick="fixedMenu('','category')" class="fa fa-times pointer h5"></i>
         </div>
-        <div class="row">
-            
-            <div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Brand Name</p>
+        <div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: </label>
+            <input type="text" placeholder="Supplier Mobile No">
             </div>
-            <div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Brand Name</p>
-            </div><div class="col-12 col-sm-6 text-center">
-                <img src="./images/Avocat.jpg" alt="">
-                <p>Brand Name</p>
+            <div class="single-input">
+                <label for="phn">Contact Person:</label>
+            <input type="text" placeholder="Contact Person:">
+            </div>
+            <div class="single-input">
+                <label for="phn">Country:</label>
+            <input type="text" placeholder="Country">
+            <div class="single-input">
+                <label for="phn">Supplier Name:</label>
+            <input type="text" placeholder="Supplier Name">
+            </div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
+            </div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
+            </div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
+            </div>
+            <div class="single-input">
+                <label for="phn">Supplier Mobile No: *</label>
+            <input type="text">
             </div>
         </div>
     </div>
 
-   
+
+
+
+
+
+
+
+
+
+
+
+    <div class="popup_container" id="modal2">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center pt-2 pb-2 pl-4 pr-4">
+                    <h4>Add Details</h4>
+                    <i onclick="popUp(false,'modal2')" class="fa pointer fa-times"></i>
+                </div>
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="right">
+                        
+                        <div class="cs-input-group">
+                            <label for="serial">Qyt</label>
+                            <input id="qyt" placeholder="Qyt" type="text" name="qyt">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="ram">Total Price</label>
+                            <input placeholder="Total Price" type="text" name="tPrice" id="tPrice">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="color">Free</label>
+                            <input placeholder="Free" type="text" name="free" id="free">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="color">Price</label>
+                            <input placeholder="Price" type="text" name="price" id="price">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="color">Basic</label>
+                            <input placeholder="Basic" type="text" name="basic" id="basic">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="color">Discount</label>
+                            <input placeholder="Discount" type="text" name="dis" id="discount">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="color">Tax</label>
+                            <input placeholder="Tax" type="text" name="tax" id="tax">
+                        </div>
+
+                        <div class="cs-input-group">
+                            <label for="color">Amount</label>
+                            <input placeholder="Amount" type="text" name="amount" id="amount">
+                        </div>
+
+
+                        <div class="button d-flex align-items-center justify-content-between">
+                            <button onclick="addToJson()">Add</button>
+                            <button onclick="popUp(false,'modal2')">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="left">
+                        <div class="cs-input-group">
+                            <label for="imei">Batch Id</label>
+                            <select name="batch" id="batch">
+                                <option value="1">Batch 1</option>
+                                <option value="2">Batch 2</option>
+                                <option value="3">Batch 3</option>
+                            </select>
+                        </div>
+
+                        <form action="" class="left_form">
+                                <legend>Add New Batch</legend>
+                            <div class="cs-input-group">
+                                <label for="batch">Batch Id</label>
+                                <input placeholder="Batch Id" type="text" name="batch" id="batch">
+                            </div>
+                            
+                            <div class="cs-input-group">
+                                <label for="batch">Discount%:</label>
+                                <input placeholder="Discount" type="text" name="batchDiscount" id="batchDiscount">
+                            </div>
+
+                            <div class="cs-input-group">
+                                <label for="batch">MRP:</label>
+                                <input placeholder="MRP" type="text" name="mrp" id="mrp">
+                            </div>
+
+                            <div class="cs-input-group">
+                                <label for="batch">Retail Price:</label>
+                                <input placeholder="Retail Price:" type="text" name="retail" id="retail">
+                            </div>
+
+                            <div class="cs-input-group">
+                                <label for="batch">Manufacture Date:</label>
+                                <input placeholder="Manufacture Date:" type="date" name="manufactureDate" id="manufactureDate">
+                            </div>
+
+                            <div class="cs-input-group">
+                                <label for="batch">Expiry Date:</label>
+                                <input placeholder="Expiry Date:" type="date" name="expiryDate" id="expiryDate">
+                            </div>
+
+                            <div class="button d-flex align-items-center justify-content-between">
+                                <button type="button" class="btn_fixed" onclick="newBatchId()">Add</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- alert message -->
+    <div class="alert" id="alert">
+        <div class="d-flex align-items-center justify-content-between">
+            <i class="fa fa-check mr2"></i>
+            <p class="mb-0">Successfully Done !</p>
+        </div>
+    </div>
+
+    <!-- calculator -->
+    <div class="calculator pointer">
+        <i onclick="fixedMenu('brand','category')" class="fa fa-calculator"></i>
+    </div>
+
+    <!-- clear data warning -->
+    <div class="clear_data_warning" id="clear_data_warning">
+        <div class="text-center">
+            <i class="fa fa-exclamation-triangle mb-3"></i>
+            <p class="mb-3">Are you sure you want to clear all data ?</p>
+        </div>
+        <div class="button d-flex align-items-center justify-content-between">
+            <button onclick="resetData()">Yes</button>
+            <button onclick="popUp(false,'clear_data_warning')">No</button>
+        </div>
+
+
 
 
 
     <!-- script -->
-    <script src="./app.js"></script>
+    <script src="../app.js"></script>
 </body>
 </html>
 
