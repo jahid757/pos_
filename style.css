@@ -247,6 +247,12 @@
     padding: 5px;
     font-size: 13px;
   }
+  .cs-input-group input.inactive{
+    background: #f3f4f6;
+    cursor: pointer;
+    border: 1px solid #f3f4f6;
+  }
+
   .taka_fixed span {
     font-size: 17px;
     padding: 8px;

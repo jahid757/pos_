@@ -8,7 +8,7 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-     <link rel="stylesheet" href="../bootstrap.min.css">
+     <!-- <link rel="stylesheet" href="../bootstrap.min.css"> -->
 
     <script src="https://kit.fontawesome.com/4b5d72e539.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
@@ -271,7 +271,7 @@
                         
                         <div class="cs-input-group">
                             <label for="sub">Subtotal</label>
-                            <input readonly id="subTotal" placeholder="Subtotal" type="text" name="sub">
+                            <input class="inactive" readonly id="subTotal" placeholder="Subtotal" type="text" name="sub">
                         </div>
 
                         <div class="cs-input-group">
@@ -304,7 +304,7 @@
 
                         <div class="cs-input-group">
                             <label for="change">Change Due</label>
-                            <input id="change" placeholder="Change Due" type="text" readonly name="change">
+                            <input class="inactive" id="change" placeholder="Change Due" type="text" readonly name="change">
                         </div>
 
                         <div class="cs-input-group">
@@ -324,7 +324,7 @@
                         <div class="cs-input-group mb-5">
                             <label for="total"><h4>Total</h4></label>
                             <div style="width:70%">
-                                <input placeholder="Total" type="text" readonly name="total">
+                                <input class="inactive" placeholder="Total" type="text" readonly name="total">
                                 <div class="consider_box d-flex align-items-center">
                                     <input type="checkbox" name="con" id="con">
                                     <label for="con">Consider the amount after point</label>
@@ -503,22 +503,22 @@
                         
                         <div class="cs-input-group">
                             <label for="serial">Qyt</label>
-                            <input id="qyt" placeholder="Qyt" type="text" name="qyt">
+                            <input onchange="updateTotalPrice()" id="qyt" placeholder="Qyt" type="text" name="qyt">
                         </div>
 
                         <div class="cs-input-group">
                             <label for="ram">Total Price</label>
-                            <input placeholder="Total Price" type="text" name="tPrice" id="tPrice">
+                            <input readonly class="inactive" placeholder="Total Price" type="text" name="tPrice" id="tPrice">
                         </div>
 
                         <div class="cs-input-group">
-                            <label for="color">Free</label>
+                            <label for="color">Fee</label>
                             <input placeholder="Free" type="text" name="free" id="free">
                         </div>
 
                         <div class="cs-input-group">
                             <label for="color">Price</label>
-                            <input placeholder="Price" type="text" name="price" id="price">
+                            <input onchange="updateTotalPrice()"  placeholder="Price" type="text" name="price" id="price">
                         </div>
 
                         <div class="cs-input-group">

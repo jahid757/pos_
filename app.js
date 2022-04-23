@@ -23,7 +23,7 @@ function showItem() {
         <tr>
             <td>${element.batchId}</td>
               <td>${element.qty}</td>
-              <td>${element.totalPrice}</td>
+              <td>${Number(element.qty)*Number(element.price)}</td>
               <td>${element.fee}</td>
               <td>${element.price}</td>
               <td>${element.basic}</td>
@@ -93,7 +93,7 @@ function grandTotal() {
   let total = 0;
   for (let i = 0; i < itemData.length; i++) {
     const element = itemData[i];
-    total += element.totalPrice * element.qty;
+    total += Number(element.totalPrice);
   }
   document.getElementById("grand-total").innerHTML = total;
   document.getElementById("subTotal").value = total;
@@ -138,6 +138,10 @@ function paidAmount() {
     document.getElementById("change").value = `Pay Now`;
   } else {
     document.getElementById("change").value = `${change} Change`;
+    document.getElementById("change").style = "color:green";
+    if(Number(change) < 0){
+      document.getElementById("change").style = "color:red";
+    }
   }
 }
 paidAmount();
@@ -182,7 +186,7 @@ function addToJson() {
         {
           batchId: batchId,
           qty: qty,
-          totalPrice: totalPrice,
+          totalPrice: qty*price,
           fee: fee,
           price: price,
           basic: basic,
@@ -199,7 +203,7 @@ function addToJson() {
         {
           batchId: batchId,
           qty: qty,
-          totalPrice: totalPrice,
+          totalPrice: qty*price,
           fee: fee,
           price: price,
           basic: basic,
@@ -358,31 +362,6 @@ function clearCache() {
   }, 1000);
 }
 
-// select option
-// const inputValue1 = document.getElementById("item_value");
-// inputValue1.addEventListener("click", (e) => {
-//   const value = e.target.textContent;
-//   for (let i = 0; i < inputValue1.childElementCount; i++) {
-//     inputValue1.children[i].classList.remove("active");
-//   }
-//   e.target.classList.add("active");
-//   document.getElementById("select_value").innerText = value;
-// });
-// document.getElementById("item_value2").addEventListener("click", (e) => {
-//   const value = e.target.textContent;
-//   document.getElementById("select_value2").innerText = value;
-// });
-
-// document.getElementById("item_value3").addEventListener("click", (e) => {
-//   const value = e.target.textContent;
-//   document.getElementById("select_value3").innerText = value;
-// });
-
-// document.getElementById("item_value4").addEventListener("click", (e) => {
-//   const value = e.target.textContent;
-//   document.getElementById("select_value4").innerText = value;
-// });
-
 let inputCount = 4;
 for (let i = 1; i <= inputCount; i++) {
   const inputValue = document.getElementById(`item_value${i}`);
@@ -395,4 +374,11 @@ for (let i = 1; i <= inputCount; i++) {
     document.getElementById(`select_value${i}`).innerText = value;
     openOption(`select${i}`)
   });
+}
+
+function updateTotalPrice(){
+  const qty = inputValue("qyt");
+  const price = inputValue("price");
+  const totalPrice = qty*price;
+  document.getElementById("tPrice").value = totalPrice;
 }
