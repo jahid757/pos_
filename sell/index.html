@@ -8,6 +8,7 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../bootstrap.min.css">
 
     <script src="https://kit.fontawesome.com/4b5d72e539.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
@@ -24,36 +25,23 @@
                         <img src="images/logo.png" alt="">
                         <i onclick="fixedMenu('menu_left','')" class="fa fa-bars"></i>
                     </div>
-                    <div class="d-flex align-items-center">
-
-                        <div class="display" id="display">
-                            <div class="d-flex align-items-center justify-content-end">
-                                <i onclick="fixedMenu('','display')" class="fa fa-times"></i>
-                            </div>
-                            <p onclick="displayResolution(1920,1080)">1920×1080</p>
-                            <p onclick="displayResolution(1366,768)">1366×768</p>
-                            <p onclick="displayResolution(1536,864)">1536×864</p>
-                            <p onclick="displayResolution(414,896)">414×896</p>
-                        </div>
-                        <button class="btn-warn" onclick="clearCache()">Clear Cache</button>
-                    </div>
                 </div>
 
                 <div class="p-3">
                     <div class="create_customer last_select">
                             <ul class="select_ul">
-                                <li style="position:relative"> <span id="select_value" onclick="openOption('select','select2')">Select</span>
-                                    <div class="select-option" id="select">
+                                <li style="position:relative"> <span id="select_value1" onclick="openOption('select1','select2')">Select</span>
+                                    <div class="select-option" id="select1">
                                         <input type="text" placeholder="Search">
                                         <p onclick="fixedMenu('category','brand')">+Add New</p>
                                         <ul>
-                                            <div class="item_value" id="item_value">
+                                            <div class="item_value" id="item_value1">
                                                 <li>Demo1</li>
                                                 <li>John</li>
                                             </div>
 
                                             <li class="d-flex align-items-center justify-content-end button">
-                                                <button onclick="openOption('select')">Close</button>
+                                                <button onclick="openOption('select1')">Close</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -62,7 +50,7 @@
                             </ul>
                         <!-- </div> -->
                         <ul class="select_ul">
-                            <li style="position:relative"> <span id="select_value2" onclick="openOption('select2','select')">Select</span>
+                            <li style="position:relative"> <span id="select_value2" onclick="openOption('select2','select1')">Select</span>
                                 <div class="select-option" id="select2">
                                     <input type="text" placeholder="Search">
                                     <p onclick="fixedMenu('category','brand')">+Add New</p>
@@ -73,7 +61,7 @@
                                         </div>
 
                                         <li class="d-flex align-items-center justify-content-end button">
-                                            <button onclick="openOption('select')">Close</button>
+                                            <button onclick="openOption('select1')">Close</button>
                                         </li>
                                     </ul>
                                 </div>

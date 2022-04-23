@@ -434,7 +434,7 @@
     cursor: pointer;
     font-size: 16.5px;
   }
-  #select.active,
+  #select1.active,
   #select2.active,
   #select3.active,
   #select4.active {
@@ -482,7 +482,14 @@
   .item .col-3 {
     width: 20%;
   }
-  
+  .item_value li{
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .item_value li.active{
+    background: #a78bfa;
+    color: #fff;
+  }
   @media (max-width: 767px) {
     .payment {
       position: inherit;

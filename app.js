@@ -359,22 +359,40 @@ function clearCache() {
 }
 
 // select option
+// const inputValue1 = document.getElementById("item_value");
+// inputValue1.addEventListener("click", (e) => {
+//   const value = e.target.textContent;
+//   for (let i = 0; i < inputValue1.childElementCount; i++) {
+//     inputValue1.children[i].classList.remove("active");
+//   }
+//   e.target.classList.add("active");
+//   document.getElementById("select_value").innerText = value;
+// });
+// document.getElementById("item_value2").addEventListener("click", (e) => {
+//   const value = e.target.textContent;
+//   document.getElementById("select_value2").innerText = value;
+// });
 
-document.getElementById("item_value").addEventListener("click", (e) => {
-  const value = e.target.textContent;
-  document.getElementById("select_value").innerText = value;
-});
-document.getElementById("item_value2").addEventListener("click", (e) => {
-  const value = e.target.textContent;
-  document.getElementById("select_value2").innerText = value;
-});
+// document.getElementById("item_value3").addEventListener("click", (e) => {
+//   const value = e.target.textContent;
+//   document.getElementById("select_value3").innerText = value;
+// });
 
-document.getElementById("item_value3").addEventListener("click", (e) => {
-  const value = e.target.textContent;
-  document.getElementById("select_value3").innerText = value;
-});
+// document.getElementById("item_value4").addEventListener("click", (e) => {
+//   const value = e.target.textContent;
+//   document.getElementById("select_value4").innerText = value;
+// });
 
-document.getElementById("item_value4").addEventListener("click", (e) => {
-  const value = e.target.textContent;
-  document.getElementById("select_value4").innerText = value;
-});
+let inputCount = 4;
+for (let i = 1; i <= inputCount; i++) {
+  const inputValue = document.getElementById(`item_value${i}`);
+  inputValue.addEventListener("click", (e) => {
+    const value = e.target.textContent;
+    for (let i = 0; i < inputValue.childElementCount; i++) {
+      inputValue.children[i].classList.remove("active");
+    }
+    e.target.classList.add("active");
+    document.getElementById(`select_value${i}`).innerText = value;
+    openOption(`select${i}`)
+  });
+}
